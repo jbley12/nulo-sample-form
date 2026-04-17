@@ -2352,7 +2352,13 @@ function validateForm() {
     zipErr.classList.remove('visible'); document.getElementById('address-zip').classList.remove('error');
   }
 
-  // SKU lines validation
+  // SKU lines validation — auto-remove blank rows first
+  document.querySelectorAll('.sku-line-wrap').forEach(function(wrap) {
+    const skuEl = wrap.querySelector('.sku-select');
+    const qtyEl = wrap.querySelector('.sku-qty');
+    if (skuEl && !skuEl.value && qtyEl && !qtyEl.value) wrap.remove();
+  });
+
   const skuErr = document.getElementById('err-sku-lines');
   if (getLineCount() === 0) {
     skuErr.textContent = 'Please add at least one product to your order.';
@@ -2918,15 +2924,15 @@ function parsePastedList() {
     return;
   }
 
-  // Remove empty default line if it exists (no SKU selected, no qty)
+  // Remove any trailing empty rows (no SKU, no qty) before appending
   const existingLines = document.querySelectorAll('.sku-line-wrap');
-  if (existingLines.length === 1) {
-    const onlyLine = existingLines[0].querySelector('.sku-select');
-    const onlyQty = existingLines[0].querySelector('.sku-qty');
-    if (onlyLine && !onlyLine.value && onlyQty && !onlyQty.value) {
-      existingLines[0].remove();
+  existingLines.forEach(function(wrap) {
+    const skuEl = wrap.querySelector('.sku-select');
+    const qtyEl = wrap.querySelector('.sku-qty');
+    if (skuEl && !skuEl.value && qtyEl && !qtyEl.value) {
+      wrap.remove();
     }
-  }
+  });
 
   // Append new items to existing list
   toAdd.forEach(function(item) { addSkuLine(item); });
