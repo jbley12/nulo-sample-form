@@ -2358,6 +2358,7 @@ function validateForm() {
     const qtyEl = wrap.querySelector('.sku-qty');
     if (skuEl && !skuEl.value && qtyEl && !qtyEl.value) wrap.remove();
   });
+  renumberLines();
 
   const skuErr = document.getElementById('err-sku-lines');
   if (getLineCount() === 0) {
@@ -2901,6 +2902,7 @@ function parsePastedList() {
       wrap.remove();
     }
   });
+  renumberLines();
 
   if (found.length === 0 && unrecognized.length > 0) {
     feedback.className = 'paste-error';
@@ -2986,6 +2988,7 @@ function clearAllProducts() {
   document.getElementById('freight-section').classList.remove('visible');
   addSkuLine();
   updateWeight();
+  renumberLines();
 }
 
 // ─── AUTOSAVE (scoped per rep name) ─────────────────────────────────────────
