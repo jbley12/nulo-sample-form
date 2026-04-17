@@ -2932,14 +2932,19 @@ function parsePastedList() {
 
   // Remove all blank/empty rows before appending
   document.querySelectorAll('.sku-line-wrap').forEach(function(wrap) {
+    console.log('Row check - sku:', wrap.querySelector('.sku-select') ? wrap.querySelector('.sku-select').value : 'NO EL', 'qty:', wrap.querySelector('.sku-qty') ? JSON.stringify(wrap.querySelector('.sku-qty').value) : 'NO EL');
     const skuEl = wrap.querySelector('.sku-select');
     const qtyEl = wrap.querySelector('.sku-qty');
     const skuVal = skuEl ? skuEl.value.trim() : '';
     const qtyVal = qtyEl ? qtyEl.value.trim() : '';
-    if (!skuVal && (!qtyVal || qtyVal === '0')) {
+    if (!skuVal && (!qtyVal || qtyVal === '' || qtyVal === '0')) {
       wrap.remove();
     }
   });
+  // If nothing left after cleanup, ensure at least one row for pasted items
+  if (document.getElementById('sku-lines').querySelectorAll('.sku-line-wrap').length === 0 && toAdd.length === 0) {
+    addSkuLine();
+  }
 
   // Append new items to existing list
   toAdd.forEach(function(item) { addSkuLine(item); });
