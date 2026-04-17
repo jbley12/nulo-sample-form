@@ -874,9 +874,14 @@
       </div>
       <div class="error-msg" id="err-sku-lines" style="margin-bottom:8px;"></div>
       <div id="sku-lines"></div>
-      <button type="button" class="btn-add-line" id="add-line-btn" onclick="addSkuLine()">
-        + Add a Product
-      </button>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <button type="button" class="btn-add-line" id="add-line-btn" onclick="addSkuLine()" style="flex:1;">
+          + Add a Product
+        </button>
+        <button type="button" id="clear-products-btn" onclick="clearAllProducts()" style="background:none; border:1.5px solid var(--border); border-radius:var(--radius); padding:11px 16px; font-family:'Barlow',sans-serif; font-size:13px; font-weight:700; color:var(--text-muted); cursor:pointer; white-space:nowrap; transition:all 0.15s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)';" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)';">
+          ✕ Clear Products
+        </button>
+      </div>
 
       <div class="paste-box-wrap">
         <button type="button" class="paste-toggle" id="paste-toggle" onclick="togglePasteBox()">
@@ -2883,26 +2888,81 @@ function parsePastedList() {
     return;
   }
 
-  // Clear existing lines and build new ones
-  document.getElementById('sku-lines').innerHTML = '';
-  found.forEach(function(item) { addSkuLine(item); });
-  if (document.getElementById('sku-lines').querySelectorAll('.sku-line-wrap').length === 0) addSkuLine();
+  // Get SKUs already in the order
+  const existingSkus = {};
+  document.querySelectorAll('.sku-line').forEach(function(line, idx) {
+    const skuEl = line.querySelector('.sku-select');
+    if (skuEl && skuEl.value) existingSkus[skuEl.value] = idx + 1;
+  });
+
+  // Check for duplicates against existing lines and within paste list
+  const duplicatesInOrder = [];
+  const duplicatesInPaste = {};
+  const toAdd = [];
+
+  found.forEach(function(item) {
+    if (existingSkus[item.sku] !== undefined) {
+      duplicatesInOrder.push(item.sku + ' (already on Item ' + existingSkus[item.sku] + ')');
+    } else if (duplicatesInPaste[item.sku]) {
+      duplicatesInPaste[item.sku]++;
+    } else {
+      duplicatesInPaste[item.sku] = 1;
+      toAdd.push(item);
+    }
+  });
+
+  // Block if all items are duplicates
+  if (toAdd.length === 0) {
+    feedback.className = 'paste-error';
+    feedback.textContent = 'All items in your list are already in your order: ' + duplicatesInOrder.join(', ');
+    return;
+  }
+
+  // Remove empty default line if it exists (no SKU selected, no qty)
+  const existingLines = document.querySelectorAll('.sku-line-wrap');
+  if (existingLines.length === 1) {
+    const onlyLine = existingLines[0].querySelector('.sku-select');
+    const onlyQty = existingLines[0].querySelector('.sku-qty');
+    if (onlyLine && !onlyLine.value && onlyQty && !onlyQty.value) {
+      existingLines[0].remove();
+    }
+  }
+
+  // Append new items to existing list
+  toAdd.forEach(function(item) { addSkuLine(item); });
   updateWeight();
 
-  // Show result
-  if (unrecognized.length > 0) {
+  // Build feedback message
+  var messages = [];
+  if (toAdd.length > 0) messages.push('✓ ' + toAdd.length + ' item' + (toAdd.length > 1 ? 's' : '') + ' added');
+  if (duplicatesInOrder.length > 0) {
     feedback.className = 'paste-error';
-    feedback.textContent = found.length + ' item' + (found.length > 1 ? 's' : '') + ' added. ' + unrecognized.length + ' not recognized: ' + unrecognized.join(', ');
-  } else {
-    feedback.className = 'paste-success';
-    feedback.textContent = '✓ ' + found.length + ' item' + (found.length > 1 ? 's' : '') + ' added successfully!';
+    messages.push('⚠️ ' + duplicatesInOrder.length + ' duplicate' + (duplicatesInOrder.length > 1 ? 's' : '') + ' skipped: ' + duplicatesInOrder.join(', '));
   }
+  if (unrecognized.length > 0) {
+    feedback.className = toAdd.length > 0 ? 'paste-error' : 'paste-error';
+    messages.push(unrecognized.length + ' not recognized: ' + unrecognized.join(', '));
+  }
+  if (duplicatesInOrder.length === 0 && unrecognized.length === 0) {
+    feedback.className = 'paste-success';
+  }
+  feedback.textContent = messages.join(' · ');
 
   // Clear the paste box
   document.getElementById('paste-input').value = '';
 
   // Scroll to products
   document.getElementById('sku-lines').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ─── CLEAR PRODUCTS ─────────────────────────────────────────────────────────
+function clearAllProducts() {
+  if (!confirm('Clear all products from your order? This cannot be undone.')) return;
+  document.getElementById('sku-lines').innerHTML = '';
+  document.getElementById('weight-bar-wrap').style.display = 'none';
+  document.getElementById('freight-section').classList.remove('visible');
+  addSkuLine();
+  updateWeight();
 }
 
 // ─── AUTOSAVE (scoped per rep name) ─────────────────────────────────────────
