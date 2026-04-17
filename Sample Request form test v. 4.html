@@ -2934,19 +2934,21 @@ function parsePastedList() {
 
   // Build feedback message
   var messages = [];
-  if (toAdd.length > 0) messages.push('✓ ' + toAdd.length + ' item' + (toAdd.length > 1 ? 's' : '') + ' added');
+  feedback.className = 'paste-success';
+
+  if (toAdd.length > 0) {
+    messages.push('✓ ' + toAdd.length + ' item' + (toAdd.length > 1 ? 's' : '') + ' added');
+  }
   if (duplicatesInOrder.length > 0) {
     feedback.className = 'paste-error';
-    messages.push('⚠️ ' + duplicatesInOrder.length + ' duplicate' + (duplicatesInOrder.length > 1 ? 's' : '') + ' skipped: ' + duplicatesInOrder.join(', '));
+    messages.push('⚠️ ' + duplicatesInOrder.length + ' already in order: ' + duplicatesInOrder.join(', '));
   }
   if (unrecognized.length > 0) {
-    feedback.className = toAdd.length > 0 ? 'paste-error' : 'paste-error';
-    messages.push(unrecognized.length + ' not recognized: ' + unrecognized.join(', '));
+    feedback.className = 'paste-error';
+    messages.push('❌ ' + unrecognized.length + ' not recognized: ' + unrecognized.map(function(u) { return u.split(' ')[0]; }).join(', '));
   }
-  if (duplicatesInOrder.length === 0 && unrecognized.length === 0) {
-    feedback.className = 'paste-success';
-  }
-  feedback.textContent = messages.join(' · ');
+
+  feedback.textContent = messages.join('  ·  ');
 
   // Clear the paste box
   document.getElementById('paste-input').value = '';
