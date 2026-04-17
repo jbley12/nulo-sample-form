@@ -2891,7 +2891,7 @@ function parsePastedList() {
     found.push({ sku: skuCode, qty: qty, label: skuCode + ' — ' + SKUS.find(function(s){return s.sku===skuCode;}).description });
   });
 
-  if (found.length === 0) {
+  if (found.length === 0 && duplicatesInOrder.length === 0 && unrecognized.length === 0) {
     feedback.className = 'paste-error';
     feedback.textContent = 'No recognized SKUs found. Check your list and try again.';
     return;
@@ -2920,10 +2920,13 @@ function parsePastedList() {
     }
   });
 
-  // Block if all items are duplicates
+  // Block if nothing new to add — but still show unrecognized if any
   if (toAdd.length === 0) {
+    var msgs = [];
+    if (duplicatesInOrder.length > 0) msgs.push('⚠️ Already in order: ' + duplicatesInOrder.join(', '));
+    if (unrecognized.length > 0) msgs.push('❌ Not recognized: ' + unrecognized.join(', '));
     feedback.className = 'paste-error';
-    feedback.textContent = 'All items in your list are already in your order: ' + duplicatesInOrder.join(', ');
+    feedback.textContent = msgs.join('  ·  ');
     return;
   }
 
