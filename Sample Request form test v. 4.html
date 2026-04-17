@@ -2866,7 +2866,9 @@ function parsePastedList() {
     const parts = line.trim().split(/[\s,	]+/);
     let skuCode = null, qty = null;
 
-    var attemptedSku = null;
+    // Track what the user typed as a SKU attempt (first non-number token)
+    var attemptedSku = parts.length > 0 ? parts[0].replace(/[^A-Za-z0-9]/g, '').toUpperCase() : null;
+
     parts.forEach(function(part) {
       const clean = part.replace(/[^A-Za-z0-9]/g, '').toUpperCase();
       if (!clean) return;
@@ -2875,28 +2877,18 @@ function parsePastedList() {
         skuCode = catalogMatch.sku;
       } else {
         const num = parseInt(clean);
-        if (!isNaN(num) && num > 0 && qty === null) {
-          qty = num;
-        } else if (!attemptedSku && clean.length >= 4 && isNaN(parseInt(clean.charAt(0)))) {
-          attemptedSku = clean; // capture what they tried to type as SKU
-        } else if (!attemptedSku && clean.length >= 4) {
-          attemptedSku = clean;
-        }
+        if (!isNaN(num) && num > 0 && qty === null) qty = num;
       }
     });
 
-    if (!skuCode && attemptedSku) {
-      unrecognized.push(attemptedSku + ' (not found)');
+    // No catalog match found — flag the attempted SKU
+    if (!skuCode) {
+      unrecognized.push(attemptedSku || line.trim());
       return;
     }
-    if (!skuCode || !qty) { unrecognized.push(line.trim().split(/[\s,]+/)[0] + ' (not recognized)'); return; }
+    if (!qty) { unrecognized.push(skuCode + ' (missing qty)'); return; }
 
-    const match = SKUS.find(function(s) { return s.sku === skuCode; });
-    if (match) {
-      found.push({ sku: match.sku, qty: qty, label: match.sku + ' — ' + match.description });
-    } else {
-      unrecognized.push(skuCode + ' (not found)');
-    }
+    found.push({ sku: skuCode, qty: qty, label: skuCode + ' — ' + SKUS.find(function(s){return s.sku===skuCode;}).description });
   });
 
   if (found.length === 0) {
