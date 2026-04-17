@@ -2934,8 +2934,9 @@ function parsePastedList() {
   document.querySelectorAll('.sku-line-wrap').forEach(function(wrap) {
     const skuEl = wrap.querySelector('.sku-select');
     const qtyEl = wrap.querySelector('.sku-qty');
-    const qtyVal = parseFloat(qtyEl ? qtyEl.value : 0) || 0;
-    if (!skuEl || (!skuEl.value && qtyVal === 0)) {
+    const skuVal = skuEl ? skuEl.value.trim() : '';
+    const qtyVal = qtyEl ? qtyEl.value.trim() : '';
+    if (!skuVal && (!qtyVal || qtyVal === '0')) {
       wrap.remove();
     }
   });
