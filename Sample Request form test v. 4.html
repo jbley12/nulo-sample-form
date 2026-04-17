@@ -2891,9 +2891,28 @@ function parsePastedList() {
     found.push({ sku: skuCode, qty: qty, label: skuCode + ' — ' + SKUS.find(function(s){return s.sku===skuCode;}).description });
   });
 
-  if (found.length === 0 && duplicatesInOrder.length === 0 && unrecognized.length === 0) {
+  // Remove blank rows immediately — regardless of what was pasted
+  document.querySelectorAll('.sku-line-wrap').forEach(function(wrap) {
+    const skuEl = wrap.querySelector('.sku-select');
+    const qtyEl = wrap.querySelector('.sku-qty');
+    const skuVal = skuEl ? skuEl.value.trim() : '';
+    const qtyVal = qtyEl ? qtyEl.value.trim() : '';
+    if (!skuVal && (!qtyVal || qtyVal === '' || qtyVal === '0')) {
+      wrap.remove();
+    }
+  });
+
+  if (found.length === 0 && unrecognized.length > 0) {
+    feedback.className = 'paste-error';
+    feedback.textContent = '❌ Not recognized: ' + unrecognized.join(', ');
+    if (document.getElementById('sku-lines').querySelectorAll('.sku-line-wrap').length === 0) addSkuLine();
+    return;
+  }
+
+  if (found.length === 0 && unrecognized.length === 0) {
     feedback.className = 'paste-error';
     feedback.textContent = 'No recognized SKUs found. Check your list and try again.';
+    if (document.getElementById('sku-lines').querySelectorAll('.sku-line-wrap').length === 0) addSkuLine();
     return;
   }
 
@@ -2928,22 +2947,6 @@ function parsePastedList() {
     feedback.className = 'paste-error';
     feedback.textContent = msgs.join('  ·  ');
     return;
-  }
-
-  // Remove all blank/empty rows before appending
-  document.querySelectorAll('.sku-line-wrap').forEach(function(wrap) {
-    console.log('Row check - sku:', wrap.querySelector('.sku-select') ? wrap.querySelector('.sku-select').value : 'NO EL', 'qty:', wrap.querySelector('.sku-qty') ? JSON.stringify(wrap.querySelector('.sku-qty').value) : 'NO EL');
-    const skuEl = wrap.querySelector('.sku-select');
-    const qtyEl = wrap.querySelector('.sku-qty');
-    const skuVal = skuEl ? skuEl.value.trim() : '';
-    const qtyVal = qtyEl ? qtyEl.value.trim() : '';
-    if (!skuVal && (!qtyVal || qtyVal === '' || qtyVal === '0')) {
-      wrap.remove();
-    }
-  });
-  // If nothing left after cleanup, ensure at least one row for pasted items
-  if (document.getElementById('sku-lines').querySelectorAll('.sku-line-wrap').length === 0 && toAdd.length === 0) {
-    addSkuLine();
   }
 
   // Append new items to existing list
