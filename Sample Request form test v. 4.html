@@ -2866,6 +2866,7 @@ function parsePastedList() {
     const parts = line.trim().split(/[\s,	]+/);
     let skuCode = null, qty = null;
 
+    var attemptedSku = null;
     parts.forEach(function(part) {
       const clean = part.replace(/[^A-Za-z0-9]/g, '').toUpperCase();
       if (!clean) return;
@@ -2874,17 +2875,27 @@ function parsePastedList() {
         skuCode = catalogMatch.sku;
       } else {
         const num = parseInt(clean);
-        if (!isNaN(num) && num > 0 && qty === null) qty = num;
+        if (!isNaN(num) && num > 0 && qty === null) {
+          qty = num;
+        } else if (!attemptedSku && clean.length >= 4 && isNaN(parseInt(clean.charAt(0)))) {
+          attemptedSku = clean; // capture what they tried to type as SKU
+        } else if (!attemptedSku && clean.length >= 4) {
+          attemptedSku = clean;
+        }
       }
     });
 
-    if (!skuCode || !qty) { unrecognized.push(line.trim()); return; }
+    if (!skuCode && attemptedSku) {
+      unrecognized.push(attemptedSku + ' (not found)');
+      return;
+    }
+    if (!skuCode || !qty) { unrecognized.push(line.trim().split(/[\s,]+/)[0] + ' (not recognized)'); return; }
 
     const match = SKUS.find(function(s) { return s.sku === skuCode; });
     if (match) {
       found.push({ sku: match.sku, qty: qty, label: match.sku + ' — ' + match.description });
     } else {
-      unrecognized.push(line.trim() + ' (SKU not found)');
+      unrecognized.push(skuCode + ' (not found)');
     }
   });
 
@@ -2924,12 +2935,12 @@ function parsePastedList() {
     return;
   }
 
-  // Remove any trailing empty rows (no SKU, no qty) before appending
-  const existingLines = document.querySelectorAll('.sku-line-wrap');
-  existingLines.forEach(function(wrap) {
+  // Remove all blank/empty rows before appending
+  document.querySelectorAll('.sku-line-wrap').forEach(function(wrap) {
     const skuEl = wrap.querySelector('.sku-select');
     const qtyEl = wrap.querySelector('.sku-qty');
-    if (skuEl && !skuEl.value && qtyEl && !qtyEl.value) {
+    const qtyVal = parseFloat(qtyEl ? qtyEl.value : 0) || 0;
+    if (!skuEl || (!skuEl.value && qtyVal === 0)) {
       wrap.remove();
     }
   });
