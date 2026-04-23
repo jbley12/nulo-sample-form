@@ -2602,7 +2602,7 @@ function updateDockMessage() {
 }
 
 // ─── CSV BUILDER ─────────────────────────────────────────────────────────────
-function buildNetSuiteCSV(poNumber, skuLines, deliveryByVal, department) {
+function buildNetSuiteCSV(poNumber, skuLines, deliveryByVal, department, country) {
   var headers = ['Order #','Customer','PO#','End Date','Location','Department ','Item','QTY','Class','Sales Order - Items : Location','Price Level','Price'];
 
   // Format end date as MM/DD/YYYY
@@ -2618,19 +2618,34 @@ function buildNetSuiteCSV(poNumber, skuLines, deliveryByVal, department) {
   // Department logic: Marketing from form = Marketing, everything else = Sales
   var deptValue = (department && department.toLowerCase() === 'marketing') ? 'Marketing' : 'Sales';
 
+  // Location logic: Canada orders ship from Mississauga
+  var isCanada = country === 'CA';
+  var locationValue = isCanada ? 'Canada - Mississauga' : 'Omaha';
+
   var rows = [headers.join(',')];
+
+  // Canada orders get a guard row at the top that will cause NetSuite to reject
+  // the import until an ops person reviews and removes it
+  if (isCanada) {
+    var guardRow = [
+      '"REVIEW REQUIRED — Canada order: update Subsidiary to Nulo Canada Ltd before importing"',
+      '','','','','','','','','','',''
+    ];
+    rows.push(guardRow.join(','));
+  }
+
   skuLines.forEach(function(item) {
     var row = [
       1,
       'Nulo Marketing',
       poNumber,
       endDate,
-      'Omaha',
+      locationValue,
       deptValue,
       item.sku,
       item.qty,
       'Indy',
-      'Omaha',
+      locationValue,
       'Custom',
       0
     ];
@@ -2853,7 +2868,7 @@ async function submitForm() {
       if (!sku || !qty) return;
       csvSkuLines.push({ sku: sku, qty: qty });
     });
-    var csvContent = buildNetSuiteCSV(poNumber, csvSkuLines, deliveryByVal, department);
+    var csvContent = buildNetSuiteCSV(poNumber, csvSkuLines, deliveryByVal, department, country);
     var taskGid = taskData.data.gid;
     var attached = await attachCSVToAsanaTask(taskGid, csvContent, poNumber, ASANA_TOKEN);
     if (!attached) {
