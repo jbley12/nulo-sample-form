@@ -2627,10 +2627,10 @@ function buildNetSuiteCSV(poNumber, skuLines, deliveryByVal, department, country
   // Canada orders get a guard row at the top that will cause NetSuite to reject
   // the import until an ops person reviews and removes it
   if (isCanada) {
-    var guardRow = [
-      '"REVIEW REQUIRED — Canada order: update Subsidiary to Nulo Canada Ltd before importing"',
-      '','','','','','','','','','',''
-    ];
+    var guardMsg = 'REVIEW REQUIRED - Canada order: update Subsidiary to Nulo Canada Ltd before importing';
+    var guardRow = [guardMsg, '', '', '', '', '', '', '', '', '', '', ''].map(function(v) {
+      return v.includes(',') || v.length > 0 ? '"' + v.replace(/"/g, '""') + '"' : v;
+    });
     rows.push(guardRow.join(','));
   }
 
