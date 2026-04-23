@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nulo Sample Request Form</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
   :root {
     --bg: #E8EAEC;
@@ -2118,6 +2118,9 @@ function addSkuLine(existing) {
 // Start with a fresh line on load — draft restores when rep types their name
 addSkuLine();
 
+// Initialize EmailJS once on page load
+emailjs.init({ publicKey: 'HaoQ5YL5GZKy2fQka' });
+
 function createSkuLine(num, existing = {}) {
   const div = document.createElement('div');
   div.className = 'sku-line';
@@ -2913,7 +2916,6 @@ async function submitForm() {
     emailStatusEl.textContent = '';
     if (true) { // emails enabled
     try {
-      emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
       // Collect OOS items for email warning
       var oosItems = [];
       document.querySelectorAll('.sku-line').forEach(function(line) {
