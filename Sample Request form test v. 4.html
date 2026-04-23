@@ -3020,10 +3020,10 @@ function parsePastedList() {
     let skuCode = null, qty = null;
 
     // Track what the user typed as a SKU attempt (first non-number token)
-    var attemptedSku = parts.length > 0 ? parts[0].replace(/[^A-Za-z0-9]/g, '').toUpperCase() : null;
+    var attemptedSku = parts.length > 0 ? parts[0].replace(/[^A-Za-z0-9-]/g, '').toUpperCase() : null;
 
     parts.forEach(function(part) {
-      const clean = part.replace(/[^A-Za-z0-9]/g, '').toUpperCase();
+      const clean = part.replace(/[^A-Za-z0-9-]/g, '').toUpperCase();
       if (!clean) return;
       const catalogMatch = SKUS.find(function(s) { return s.sku.toUpperCase() === clean; });
       if (catalogMatch && skuCode === null) {
