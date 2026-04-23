@@ -2603,59 +2603,91 @@ function updateDockMessage() {
 
 // ─── CSV BUILDER ─────────────────────────────────────────────────────────────
 function buildNetSuiteCSV(poNumber, skuLines, deliveryByVal, department, country) {
-  var headers = ['Order #','Customer','PO#','End Date','Location','Department ','Item','QTY','Class','Sales Order - Items : Location','Price Level','Price'];
+  var isCanada = country === 'CA';
+
+  // Format today's date as MM/DD/YYYY
+  var today = new Date();
+  var todayStr = String(today.getMonth() + 1).padStart(2, '0') + '/' +
+                 String(today.getDate()).padStart(2, '0') + '/' +
+                 today.getFullYear();
 
   // Format end date as MM/DD/YYYY
   var endDate = '';
   if (deliveryByVal) {
     var d = new Date(deliveryByVal + 'T00:00:00');
-    var mm = String(d.getMonth() + 1).padStart(2, '0');
-    var dd = String(d.getDate()).padStart(2, '0');
-    var yyyy = d.getFullYear();
-    endDate = mm + '/' + dd + '/' + yyyy;
+    endDate = String(d.getMonth() + 1).padStart(2, '0') + '/' +
+              String(d.getDate()).padStart(2, '0') + '/' +
+              d.getFullYear();
   }
 
   // Department logic: Marketing from form = Marketing, everything else = Sales
   var deptValue = (department && department.toLowerCase() === 'marketing') ? 'Marketing' : 'Sales';
 
-  // Location logic: Canada orders ship from Mississauga
-  var isCanada = country === 'CA';
-  var locationValue = isCanada ? 'Canada - Mississauga' : 'Omaha';
-
-  var rows = [headers.join(',')];
-
-  // Canada orders get a guard row at the top that will cause NetSuite to reject
-  // the import until an ops person reviews and removes it
-  if (isCanada) {
-    var guardMsg = 'REVIEW REQUIRED - Canada order: update Subsidiary to Nulo Canada Ltd before importing';
-    var guardRow = [guardMsg, '', '', '', '', '', '', '', '', '', '', ''].map(function(v) {
-      return v.includes(',') || v.length > 0 ? '"' + v.replace(/"/g, '""') + '"' : v;
-    });
-    rows.push(guardRow.join(','));
+  function escapeCSV(v) {
+    var s = String(v);
+    if (s.includes(',') || s.includes('"') || s.includes('\n')) {
+      return '"' + s.replace(/"/g, '""') + '"';
+    }
+    return s;
   }
 
-  skuLines.forEach(function(item) {
-    var row = [
-      1,
-      'Nulo Marketing',
-      poNumber,
-      endDate,
-      locationValue,
-      deptValue,
-      item.sku,
-      item.qty,
-      'Indy',
-      locationValue,
-      'Custom',
-      0
-    ];
-    // Escape any fields that contain commas
-    var escaped = row.map(function(v) {
-      var s = String(v);
-      return s.includes(',') ? '"' + s + '"' : s;
+  var rows = [];
+
+  if (isCanada) {
+    // ── CANADA TEMPLATE ──────────────────────────────────────────────────────
+    var caHeaders = ['Order #','PO#','Customer','Item','Date','End Date','Qty','Original Order Qty','Price Level','Price','Currency','Department','Class','Location','Sales Order - Items : Location','Subsidiary'];
+    rows.push(caHeaders.join(','));
+
+    // Guard row — forces ops to review before importing
+    var guardMsg = 'REVIEW REQUIRED - confirm warehouse';
+    var guardRow = [guardMsg, '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''].map(escapeCSV);
+    rows.push(guardRow.join(','));
+
+    skuLines.forEach(function(item) {
+      var row = [
+        1,
+        poNumber,
+        'Nulo Marketing',
+        item.sku,
+        todayStr,
+        endDate,
+        item.qty,
+        item.qty,
+        'Custom',
+        0,
+        'Canadian Dollar',
+        deptValue,
+        'Indy',
+        'Canada - Mississauga',
+        'Canada - Mississauga',
+        'Fetch Topco Holdings LP : Nulo, Inc. : Nulo Canada Ltd.'
+      ];
+      rows.push(row.map(escapeCSV).join(','));
     });
-    rows.push(escaped.join(','));
-  });
+
+  } else {
+    // ── US TEMPLATE ──────────────────────────────────────────────────────────
+    var usHeaders = ['Order #','Customer','PO#','End Date','Location','Department ','Item','QTY','Class','Sales Order - Items : Location','Price Level','Price'];
+    rows.push(usHeaders.join(','));
+
+    skuLines.forEach(function(item) {
+      var row = [
+        1,
+        'Nulo Marketing',
+        poNumber,
+        endDate,
+        'Omaha',
+        deptValue,
+        item.sku,
+        item.qty,
+        'Indy',
+        'Omaha',
+        'Custom',
+        0
+      ];
+      rows.push(row.map(escapeCSV).join(','));
+    });
+  }
 
   return rows.join('\r\n');
 }
