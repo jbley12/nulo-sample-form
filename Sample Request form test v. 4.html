@@ -829,15 +829,21 @@
     <!-- RECIPIENT INFO -->
     <div class="card">
       <div class="section-title">Recipient & Shipping Info</div>
-      <div class="field-row">
+      <div class="field-row full">
         <div class="field">
           <label>Recipient / Store Name <span class="req">*</span></label>
           <input type="text" id="recipient-name" placeholder="e.g. Acme Pet Supply">
           <div class="error-msg" id="err-recipient-name">Who is this order going to? Enter the store or recipient name.</div>
         </div>
+      </div>
+      <div class="field-row">
         <div class="field">
           <label>Attention / Contact Name</label>
           <input type="text" id="attn-name" placeholder="e.g. Alex Johnson">
+        </div>
+        <div class="field">
+          <label>Recipient Phone</label>
+          <input type="tel" id="recipient-phone" placeholder="e.g. 512-555-0100">
         </div>
       </div>
       <div class="field-row full">
@@ -2494,6 +2500,8 @@ function buildTaskDescription(poNumber) {
   lines.push(`── SHIP TO ──────────────────────────`);
   lines.push(`Recipient: ${recipientName}`);
   if (attnName) lines.push(`Attn: ${attnName}`);
+  const recipientPhone = document.getElementById('recipient-phone').value.trim();
+  if (recipientPhone) lines.push(`Phone: ${recipientPhone}`);
   lines.push(`Address: ${street}, ${city}, ${state} ${zip}${country === 'CA' ? ', Canada' : ''}`);
   lines.push(``);
   lines.push(`── ORDER LINES ──────────────────────`);
@@ -3295,6 +3303,7 @@ function saveFormState() {
       deliveryBy: document.getElementById('delivery-by').value,
       recipientName: document.getElementById('recipient-name').value,
       attnName: document.getElementById('attn-name').value,
+      recipientPhone: document.getElementById('recipient-phone').value,
       street: document.getElementById('address-street').value,
       city: document.getElementById('address-city').value,
       addrState: document.getElementById('address-state').value,
@@ -3349,6 +3358,7 @@ function tryRestoreForName(name) {
     }
     set('recipient-name', state.recipientName);
     set('attn-name', state.attnName);
+    if (state.recipientPhone) set('recipient-phone', state.recipientPhone);
     set('address-street', state.street);
     set('address-city', state.city);
     set('address-state', state.addrState);
