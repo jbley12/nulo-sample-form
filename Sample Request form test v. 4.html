@@ -567,7 +567,7 @@
   }
   .sku-group-header.samples { background: var(--accent); }
   .sku-group-header.canada { background: #2C5282; }
-  .sku-group-header.oos { background: var(--accent); }
+
   .sku-no-results {
     padding: 12px;
     font-size: 13px;
@@ -1077,7 +1077,6 @@ const SKUS = [
   { sku: "10ST11", description: "Frontrunner SB Puppy & Adult With Turkey, Whitefish, & Quinoa 11lb", case_weight_lbs: 11.2, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Frontrunner" },
   { sku: "10ST11-CA", description: "CA - Frontrunner Small Breed with Turkey, Whitefish, & Quinoa 11LB Bag", case_weight_lbs: 11.2, case_pack_qty: 1, group: "canada", category: "Dogs", line: "Frontrunner" },
   { sku: "10ST14", description: "ECOM - FR SM BREED TRKY WHITEFISH QUINOA 14lb", case_weight_lbs: 14.15, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Frontrunner" },
-  { sku: "10STS4", description: "Frontrunner SB Puppy & Adult With Turkey, Whitefish, & Quinoa 4oz Sample - Case Pack of 25", case_weight_lbs: 7.05, case_pack_qty: 25, group: "samples", category: "Dogs", line: "Frontrunner" },
   { sku: "13PB09", description: "Nulo Gently-Cooked Meal for Dogs Beef & Sweet Potato Recipe - 9 OZ Pouch", case_weight_lbs: 5.0, case_pack_qty: 8, group: "regular", category: "Dogs", line: "Gently Cooked" },
   { sku: "13PC09", description: "Nulo Gently-Cooked Meal for Dogs Chicken & Quinoa Recipe - 9 OZ Pouch", case_weight_lbs: 5.0, case_pack_qty: 8, group: "regular", category: "Dogs", line: "Gently Cooked" },
   { sku: "13PD09", description: "Nulo Gently-Cooked Meal for Dogs Duck & Quinoa Recipe - 9 OZ Pouch", case_weight_lbs: 5.0, case_pack_qty: 8, group: "regular", category: "Dogs", line: "Gently Cooked" },
@@ -1090,19 +1089,15 @@ const SKUS = [
   { sku: "13ZC03", description: "Nulo Small Breed Dog Gently-Cooked Meal Chicken & Quinoa Recipe 3.5 oz Pouch", case_weight_lbs: 6.4, case_pack_qty: 24, group: "regular", category: "Dogs", line: "Gently Cooked" },
   { sku: "13ZS03", description: "Nulo Small Breed Dog Gently-Cooked Meal Salmon & Brown Rice Recipe 3.5 oz Pouch", case_weight_lbs: 6.4, case_pack_qty: 24, group: "regular", category: "Dogs", line: "Gently Cooked" },
   { sku: "13ZX03", description: "Master Case - Nulo Small Breed Dog Gently-Cooked Meals 3-Flavor Variety Pack 2 x 8 x 3.5oz Pouches", case_weight_lbs: 3.49, case_pack_qty: 16, group: "regular", category: "Dogs", line: "Gently Cooked" },
-  { sku: "16DA01", description: "Digestive Health Adult Cat Chicken & Whitefish 1.8LB Bag", case_weight_lbs: 11.25, case_pack_qty: 6, group: "regular", category: "Cats", line: "Prowess" },
   { sku: "16DA04", description: "Digestive Health Adult Cat Chicken & Whitefish 4.5LB Bag", case_weight_lbs: 16.4, case_pack_qty: 4, group: "regular", category: "Cats", line: "Prowess" },
   { sku: "16DA10", description: "Digestive Health Adult Cat Chicken & Whitefish 10LB Bag", case_weight_lbs: 10.15, case_pack_qty: 1, group: "regular", category: "Cats", line: "Prowess" },
-  { sku: "16DK01", description: "Digestive Health Kitten Chicken & Whitefish 1.8LB Bag", case_weight_lbs: 11.25, case_pack_qty: 6, group: "regular", category: "Cats", line: "Prowess" },
-  { sku: "16DK04", description: "Digestive Health Kitten Chicken & Whitefish 4.5LB Bag", case_weight_lbs: 16.4, case_pack_qty: 4, group: "regular", category: "Cats", line: "Prowess" },
   { sku: "16FD03", description: "Nulo Prowess Adult Cat Sensitive Stomach 3.5LB Bag", case_weight_lbs: 14.4, case_pack_qty: 4, group: "regular", category: "Cats", line: "Prowess" },
   { sku: "16FD06", description: "Nulo Prowess Adult Cat Sensitive Stomach 6LB Bag", case_weight_lbs: 24.4, case_pack_qty: 4, group: "regular", category: "Cats", line: "Prowess" },
   { sku: "16FD13", description: "Nulo Prowess Adult Cat Sensitive Stomach 13LB Bag", case_weight_lbs: 13.1, case_pack_qty: 1, group: "regular", category: "Cats", line: "Prowess" },
   { sku: "16FE03", description: "Nulo Prowess Cat & Kitten All in One Essentials 3.5LB Bag", case_weight_lbs: 14.4, case_pack_qty: 4, group: "regular", category: "Cats", line: "Prowess" },
   { sku: "16FE06", description: "Nulo Prowess Cat & Kitten All in One Essentials 6LB Bag", case_weight_lbs: 24.4, case_pack_qty: 4, group: "regular", category: "Cats", line: "Prowess" },
   { sku: "16FE13", description: "Nulo Prowess Cat & Kitten All in One Essentials 13LB Bag", case_weight_lbs: 13.1, case_pack_qty: 1, group: "regular", category: "Cats", line: "Prowess" },
-  { sku: "16FE32", description: "Nulo Prowess Cat & Kitten All in One Essentials 32lb Bulk Bag", case_weight_lbs: 32.0, case_pack_qty: null, group: "regular", category: "Cats", line: "Prowess" },
-  { sku: "16FES2", description: "Case - Nulo Prowess Cat & Kitten All in One Essentials 2 OZ Sample", case_weight_lbs: null, case_pack_qty: null, group: "samples", category: "Cats", line: "Prowess" },
+  { sku: "16FES2", description: "Case - Nulo Prowess Cat & Kitten All in One Essentials 2 OZ Sample", case_weight_lbs: 7.5, case_pack_qty: 50, group: "samples", category: "Cats", line: "Prowess" },
   { sku: "16FK03", description: "Nulo Prowess Bright Beginnings Kitten 3.5LB Bag", case_weight_lbs: 14.4, case_pack_qty: 4, group: "regular", category: "Cats", line: "Prowess" },
   { sku: "16FK06", description: "Nulo Prowess Bright Beginnings Kitten 6LB Bag", case_weight_lbs: 24.4, case_pack_qty: 4, group: "regular", category: "Cats", line: "Prowess" },
   { sku: "16FM03", description: "Nulo Prowess Senior Cat Mature 12+ 3.5LB Bag", case_weight_lbs: 14.4, case_pack_qty: 4, group: "regular", category: "Cats", line: "Prowess" },
@@ -1149,7 +1144,6 @@ const SKUS = [
   { sku: "17WT02", description: "Prowess Healthy Weight Adult Cat Tuna & Duck Recipe in Broth 2.8oz Can", case_weight_lbs: null, case_pack_qty: 96, group: "regular", category: "Cats", line: "Prowess" },
   { sku: "18CC09", description: "Nulo Calming Soft Chew for Dogs - 9.5 OZ Jar", case_weight_lbs: 9.75, case_pack_qty: 12, group: "regular", category: "Treats & Supplements", line: "Functional" },
   { sku: "18CI09", description: "Nulo Immune Soft Chew for Dogs - 9.5 OZ Jar", case_weight_lbs: 9.75, case_pack_qty: 12, group: "regular", category: "Treats & Supplements", line: "Functional" },
-  { sku: "18CL09", description: "Nulo HEMP-MUSHROOM Soft Chew for Dogs - 9.5 OZ Jar", case_weight_lbs: 9.75, case_pack_qty: 12, group: "regular", category: "Treats & Supplements", line: "Functional" },
   { sku: "18CM09", description: "Nulo Mobility Soft Chew for Dogs - 9.5 OZ Jar", case_weight_lbs: 9.75, case_pack_qty: 12, group: "regular", category: "Treats & Supplements", line: "Functional" },
   { sku: "18CO09", description: "Nulo Omega Soft Chew for Dogs - 9.5 OZ Jar", case_weight_lbs: 9.75, case_pack_qty: 12, group: "regular", category: "Treats & Supplements", line: "Functional" },
   { sku: "18CP09", description: "Nulo Probiotic Soft Chew for Dogs - 9.5 OZ Jar", case_weight_lbs: 9.75, case_pack_qty: 12, group: "regular", category: "Treats & Supplements", line: "Functional" },
@@ -1163,25 +1157,11 @@ const SKUS = [
   { sku: "18GO10", description: "Nulo Functional Granola Omega Dog Treats 10oz", case_weight_lbs: 8.7, case_pack_qty: 12, group: "regular", category: "Treats & Supplements", line: "Functional" },
   { sku: "18GO10-CA", description: "CA - Nulo Functional Granola Omega Dog Treats 10 OZ", case_weight_lbs: 8.7, case_pack_qty: 12, group: "canada", category: "Treats & Supplements", line: "Functional" },
   { sku: "18OM16", description: "Nulo Omega 3-6-9 Oil Supplement for Dogs  -12 x 16OZ Bottles", case_weight_lbs: 12.75, case_pack_qty: 12, group: "regular", category: "Treats & Supplements", line: "Functional" },
-  { sku: "18PA04", description: "Nulo Functional Powder for Dogs Advanced Health - 4.2 OZ Jar", case_weight_lbs: 4.0, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Functional" },
-  { sku: "18PD04", description: "Nulo Functional Powder for Dogs Digestion - 4.2 OZ Jar", case_weight_lbs: 4.0, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Functional" },
-  { sku: "18PJ04", description: "Nulo Functional Powder for Dogs Healthy Joints - 4.2 OZ Jar", case_weight_lbs: 4.0, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Functional" },
-  { sku: "18PM04", description: "Nulo Functional Powder for Dogs Healthy Mind - 4.2 OZ Jar", case_weight_lbs: 4.0, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Functional" },
-  { sku: "18PS04", description: "Nulo Functional Powder for Dogs Skin & Coat - 4.2 OZ Jar", case_weight_lbs: 4.0, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Functional" },
   { sku: "23PC03", description: "Nulo Cat Gently-Cooked Meal Chicken Recipe 3.5 oz Pouch", case_weight_lbs: 6.4, case_pack_qty: 24, group: "regular", category: "Cats", line: "Gently Cooked" },
   { sku: "23PD03", description: "Nulo Cat Gently-Cooked Meal Duck & Chicken Recipe 3.5 oz Pouch", case_weight_lbs: 6.4, case_pack_qty: 24, group: "regular", category: "Cats", line: "Gently Cooked" },
   { sku: "23PS03", description: "Nulo Cat Gently-Cooked Meal Salmon & Chicken Recipe 3.5 oz Pouch", case_weight_lbs: 6.4, case_pack_qty: 24, group: "regular", category: "Cats", line: "Gently Cooked" },
   { sku: "23PT03", description: "Nulo Cat Gently-Cooked Meal Salmon & Tuna Recipe 3.5 oz Pouch", case_weight_lbs: 6.4, case_pack_qty: 24, group: "regular", category: "Cats", line: "Gently Cooked" },
   { sku: "23PX03", description: "Nulo Cat Gently-Cooked Meals 4-Flavor Variety Pack 8 x 3.5oz Pouches", case_weight_lbs: 4.3, case_pack_qty: 2, group: "regular", category: "Cats", line: "Gently Cooked" },
-  { sku: "28CA02", description: "Nulo Advanced Health 5-in-1 Soft Chew for Cats - 2.6 OZ (150 Ct) Jar", case_weight_lbs: 1.95, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
-  { sku: "28CG02", description: "Nulo Gut Health + Probiotic Soft Chew for Cats - 2.6 OZ (150 Ct) Jar", case_weight_lbs: null, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
-  { sku: "28CH02", description: "Nulo Hairball + Urinary Health Soft Chew for Cats - 2.6 OZ (150 Ct) Jar", case_weight_lbs: 1.95, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
-  { sku: "28CL02", description: "Nulo Immune Lysine+ Soft Chew for Cats - 2.6 OZ (150 Ct) Jar", case_weight_lbs: null, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
-  { sku: "28CO02", description: "Nulo Omega Soft Chew for Cats - 2.6 OZ (150 Ct) Jar", case_weight_lbs: 1.95, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
-  { sku: "28CW02", description: "Nulo Healthy Weight + Joint Soft Chew for Cats - 2.6 OZ (150 Ct) Jar", case_weight_lbs: 1.95, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
-  { sku: "28PA04", description: "Nulo Functional Powder for Cats Advanced Health - 4.2 OZ Jar", case_weight_lbs: 4.0, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
-  { sku: "28PD04", description: "Nulo Functional Powder for Cats Digestion - 4.2 OZ Jar", case_weight_lbs: 4.0, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
-  { sku: "28PW04", description: "Nulo Functional Powder for Cats Healthy Weight + Joint - 4.2 OZ Jar", case_weight_lbs: 4.0, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
   { sku: "31BB04", description: "Nulo Culinary Harvest Oven-Baked Adult Dog Beef, Pork, & Lamb 4LB Bag", case_weight_lbs: 16.5, case_pack_qty: 4, group: "regular", category: "Dogs", line: "Culinary Harvest" },
   { sku: "31BB10", description: "Nulo Culinary Harvest Oven-Baked Adult Dog Beef, Pork, & Lamb 10LB Bag", case_weight_lbs: 10.13, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Culinary Harvest" },
   { sku: "31BB20", description: "Nulo Culinary Harvest Oven-Baked Adult Dog Beef & Lamb 20LB Bag", case_weight_lbs: 20.13, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Culinary Harvest" },
@@ -1193,14 +1173,12 @@ const SKUS = [
   { sku: "31BT04", description: "Nulo Culinary Harvest Oven-Baked Adult Dog Turkey & Herring 4LB Bag", case_weight_lbs: 16.5, case_pack_qty: 4, group: "regular", category: "Dogs", line: "Culinary Harvest" },
   { sku: "31BT10", description: "Nulo Culinary Harvest Oven-Baked Adult Dog Turkey & Herring 10LB Bag", case_weight_lbs: 10.13, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Culinary Harvest" },
   { sku: "31BT20", description: "Nulo Culinary Harvest Oven-Baked Adult Dog Turkey & Herring 20LB Bag", case_weight_lbs: 20.13, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Culinary Harvest" },
-  { sku: "31BT50", description: "Nulo Culinary Harvest Baked Cat & Kitten Chicken & Duck 50LB Bulk Bag", case_weight_lbs: 50.0, case_pack_qty: null, group: "regular", category: "Dogs", line: "Culinary Harvest" },
-  { sku: "31BTS3", description: "Case - Nulo Culinary Harvest Baked Adult Dog Turkey & Herrings 3 oz Samples", case_weight_lbs: null, case_pack_qty: null, group: "regular", category: "Dogs", line: "Culinary Harvest" },
+  { sku: "31BTS3", description: "Case - Nulo Culinary Harvest Baked Adult Dog Turkey & Herrings 3 oz Samples", case_weight_lbs: 4.7, case_pack_qty: 25, group: "regular", category: "Dogs", line: "Culinary Harvest" },
   { sku: "31BZ04", description: "Nulo Culinary Harvest Oven-Baked Small Breed Dog Beef, Pork, & Lamb 4LB Bag", case_weight_lbs: 16.5, case_pack_qty: 4, group: "regular", category: "Dogs", line: "Culinary Harvest" },
   { sku: "31BZ10", description: "Nulo Culinary Harvest Oven-Baked Small Breed Dog Beef, Pork, & Lamb 10LB Bag", case_weight_lbs: 10.13, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Culinary Harvest" },
   { sku: "41BC04", description: "Nulo Culinary Harvest Oven-Baked Cat & Kitten Chicken & Duck 4LB Bag", case_weight_lbs: 16.5, case_pack_qty: 4, group: "regular", category: "Cats", line: "Culinary Harvest" },
   { sku: "41BC10", description: "Nulo Culinary Harvest Oven-Baked Cat & Kitten Chicken & Duck 10LB Bag", case_weight_lbs: 10.13, case_pack_qty: 1, group: "regular", category: "Cats", line: "Culinary Harvest" },
-  { sku: "41BC50", description: "Nulo Culinary Harvest Baked Cat & Kitten Chicken & Duck 50LB Bulk Bag", case_weight_lbs: 50.0, case_pack_qty: null, group: "regular", category: "Cats", line: "Culinary Harvest" },
-  { sku: "41BCS2", description: "Case - Nulo Culinary Harvest Baked Cat & Kitten Chicken & Duck 50 x 2OZ Samples", case_weight_lbs: null, case_pack_qty: null, group: "samples", category: "Cats", line: "Culinary Harvest" },
+  { sku: "41BCS2", description: "Case - Nulo Culinary Harvest Baked Cat & Kitten Chicken & Duck 50 x 2OZ Samples", case_weight_lbs: 7.5, case_pack_qty: 50, group: "samples", category: "Cats", line: "Culinary Harvest" },
   { sku: "41BT04", description: "Nulo Culinary Harvest Oven-Baked Cat & Kitten Turkey & Salmon 4LB Bag", case_weight_lbs: 16.5, case_pack_qty: 4, group: "regular", category: "Cats", line: "Culinary Harvest" },
   { sku: "41BT10", description: "Nulo Culinary Harvest Oven-Baked Cat & Kitten Turkey & Salmon 10LB Bag", case_weight_lbs: 10.13, case_pack_qty: 1, group: "regular", category: "Cats", line: "Culinary Harvest" },
   { sku: "51AC04", description: "FreeStyle Adult Trim Dog Cod & Lentils 4.5lb - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "FreeStyle" },
@@ -1224,7 +1202,6 @@ const SKUS = [
   { sku: "51AL24", description: "FreeStyle Adult Dog Lamb & Chickpeas 24lb", case_weight_lbs: 24.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51AL24-CA", description: "CA - FreeStyle Adult Dog GF Lamb & Chickpeas 24LB Bag", case_weight_lbs: 24.25, case_pack_qty: 1, group: "canada", category: "Dogs", line: "FreeStyle" },
   { sku: "51AL26", description: "ECOM - FS ADULT DOG GF LAMB 26lb", case_weight_lbs: 26.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "FreeStyle" },
-  { sku: "51AS02", description: "FreeStyle Adult Dog Salmon & Peas 2lb - Case Pack of 6", case_weight_lbs: 12.6, case_pack_qty: 6, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51AS04", description: "FreeStyle Adult Dog Salmon & Peas 4.5lb - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51AS04-CA", description: "CA - FreeStyle Adult Dog GF Salmon & Peas 4.5LB Bag", case_weight_lbs: 23.05, case_pack_qty: 5, group: "canada", category: "Dogs", line: "FreeStyle" },
   { sku: "51AS06", description: "ECOM - FS ADULT DOG GF SALMON 6lb - Case Pack of 5", case_weight_lbs: 30.5, case_pack_qty: 5, group: "regular", category: "Dogs", line: "FreeStyle" },
@@ -1232,7 +1209,6 @@ const SKUS = [
   { sku: "51AS24", description: "FreeStyle Adult Dog Salmon & Peas 24lb", case_weight_lbs: 24.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51AS24-CA", description: "CA - FreeStyle Adult Dog GF Salmon & Peas 24LB Bag", case_weight_lbs: 24.25, case_pack_qty: 1, group: "canada", category: "Dogs", line: "FreeStyle" },
   { sku: "51AS26", description: "ECOM - FS ADULT DOG GF SALMON 26lb", case_weight_lbs: 26.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "FreeStyle" },
-  { sku: "51AT02", description: "FreeStyle Adult Dog Turkey & Sweet Potato 2lb - Case Pack of 6", case_weight_lbs: 12.6, case_pack_qty: 6, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51AT04", description: "FreeStyle Adult Dog Turkey & Sweet Potato 4.5lb - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51AT04-CA", description: "CA - FreeStyle Adult Dog GF Turkey & Sweet Potato 4.5LB Bag", case_weight_lbs: 23.05, case_pack_qty: 5, group: "canada", category: "Dogs", line: "FreeStyle" },
   { sku: "51AT06", description: "ECOM - FS ADULT DOG GF TURKEY 6lb - Case Pack of 5", case_weight_lbs: 30.5, case_pack_qty: 5, group: "regular", category: "Dogs", line: "FreeStyle" },
@@ -1253,13 +1229,12 @@ const SKUS = [
   { sku: "51LS22", description: "FreeStyle Limited+ Puppy & Adult Salmon 22lb", case_weight_lbs: 22.2, case_pack_qty: 1, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51LS22-CA", description: "CA - FreeStyle Puppy & Adult Dog Limited+ GF Salmon 22LB Bag", case_weight_lbs: 22.2, case_pack_qty: 1, group: "canada", category: "Dogs", line: "FreeStyle" },
   { sku: "51LS24", description: "ECOM - FS DOG LID GF SALMON 24lb", case_weight_lbs: 24.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "FreeStyle" },
-  { sku: "51LSS4", description: "FreeStyle Limited+ Puppy & Adult Salmon 4oz Samples - Case Pack of 25", case_weight_lbs: 7.05, case_pack_qty: 25, group: "oos", category: "Dogs", line: "FreeStyle" },
+  { sku: "51LSS4", description: "FreeStyle Limited+ Puppy & Adult Salmon 4oz Samples - Case Pack of 25", case_weight_lbs: 7.05, case_pack_qty: 25, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51LT04", description: "FreeStyle Limited+ Puppy & Adult Turkey 4lb - Case Pack of 5", case_weight_lbs: 20.5, case_pack_qty: 5, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51LT05", description: "ECOM - FS DOG LID GF TURKEY 5.5lb - Case Pack of 5", case_weight_lbs: 28.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51LT10", description: "FreeStyle Limited+ Puppy & Adult Turkey 10lb", case_weight_lbs: 10.15, case_pack_qty: 1, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51LT22", description: "FreeStyle Limited+ Puppy & Adult Turkey 22lb", case_weight_lbs: 22.2, case_pack_qty: 1, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51LT24", description: "ECOM - FS DOG LID GF TURKEY 24lb", case_weight_lbs: 24.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "FreeStyle" },
-  { sku: "51LTS4", description: "FreeStyle Limited+ Puppy & Adult Turkey 4oz Samples - Case Pack of 25", case_weight_lbs: 7.05, case_pack_qty: 25, group: "samples", category: "Dogs", line: "FreeStyle" },
   { sku: "51LW04", description: "FreeStyle Limited+ Puppy & Adult Alaska Pollock & Lentils 4lb - Case Pack of 5", case_weight_lbs: 20.5, case_pack_qty: 5, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51LW04-CA", description: "CA - FreeStyle Puppy & Adult Dog Limited+ GF Alaska Pollock & Lentils 4LB Bag", case_weight_lbs: 20.5, case_pack_qty: 5, group: "canada", category: "Dogs", line: "FreeStyle" },
   { sku: "51LW05", description: "ECOM - FS DOG LID GF POLLOCK 5.5lb - Case Pack of 5", case_weight_lbs: 28.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "FreeStyle" },
@@ -1267,18 +1242,12 @@ const SKUS = [
   { sku: "51LW22", description: "FreeStyle Limited+ Puppy & Adult Alaska Pollock & Lentils 22lb", case_weight_lbs: 22.2, case_pack_qty: 1, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51LW22-CA", description: "CA - FreeStyle Puppy & Adult Dog Limited+ GF Alaksa Pollock & Lentils 22LB Bag", case_weight_lbs: 22.2, case_pack_qty: 1, group: "canada", category: "Dogs", line: "FreeStyle" },
   { sku: "51LW24", description: "ECOM - FS DOG LID GF POLLOCK 24lb", case_weight_lbs: 24.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "FreeStyle" },
-  { sku: "51LWS4", description: "FreeStyle Limited+ Puppy & Adult Alaska Pollock & Lentils 4oz Samples - Case Pack of 25", case_weight_lbs: 7.05, case_pack_qty: 25, group: "samples", category: "Dogs", line: "FreeStyle" },
-  { sku: "51LZ02", description: "FreeStyle Limited+ Small Breed Puppy & Adult Turkey 2lb - Case Pack of 6", case_weight_lbs: 12.6, case_pack_qty: 6, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51LZ04", description: "FreeStyle Limited+ Small Breed Puppy & Adult Turkey 4lb - Case Pack of 5", case_weight_lbs: 20.5, case_pack_qty: 5, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51LZ05", description: "ECOM - FS DOG LID GF SM BREED TURKEY 5.5lb - Case Pack of 5", case_weight_lbs: 28.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51LZ10", description: "FreeStyle Limited+ Small Breed Puppy & Adult Turkey 10lb", case_weight_lbs: 10.15, case_pack_qty: 1, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51LZ14", description: "ECOM - FS DOG LID GF SM BREED TURKEY 14lb", case_weight_lbs: 14.15, case_pack_qty: 1, group: "regular", category: "Dogs", line: "FreeStyle" },
-  { sku: "51LZS4", description: "FreeStyle Limited+ Small Breed Puppy & Adult Turkey 4oz Samples - Case Pack of 25", case_weight_lbs: 7.05, case_pack_qty: 25, group: "samples", category: "Dogs", line: "FreeStyle" },
-  { sku: "51PL04", description: "FreeStyle Large Breed Puppy Grain-Free Salmon and Turkey 4.5lb - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51PL24", description: "FreeStyle Large Breed Puppy Grain-Free Salmon and Turkey 24lb", case_weight_lbs: 24.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51PL26", description: "ECOM - FS PPY LARGE BREED SALMON & TURKEY 26lb", case_weight_lbs: 26.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "FreeStyle" },
-  { sku: "51PLS4", description: "FreeStyle Puppy Large Breed Salmon 4 oz Samples - Case Pack of 25", case_weight_lbs: 7.05, case_pack_qty: 25, group: "samples", category: "Dogs", line: "FreeStyle" },
-  { sku: "51PS02", description: "FreeStyle Puppy Salmon & Peas 2lb - Case Pack of 6", case_weight_lbs: 12.6, case_pack_qty: 6, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51PS04", description: "FreeStyle Puppy Salmon & Peas 4.5lb - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "51PS04-CA", description: "CA - FreeStyle Puppy GF Salmon & Peas 4.5LB Bag", case_weight_lbs: 23.05, case_pack_qty: 5, group: "canada", category: "Dogs", line: "FreeStyle" },
   { sku: "51PS06", description: "ECOM - FS PUPPY GF SALMON 6lb - Case Pack of 5", case_weight_lbs: 30.5, case_pack_qty: 5, group: "regular", category: "Dogs", line: "FreeStyle" },
@@ -1306,7 +1275,6 @@ const SKUS = [
   { sku: "52AB13", description: "Nulo Dog GF Beef 13oz Can - Case Pack of 12", case_weight_lbs: 11.35, case_pack_qty: 12, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52AC13", description: "Nulo Dog GF Chicken 13oz Can - Case Pack of 12", case_weight_lbs: 11.35, case_pack_qty: 12, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52AC13-CA", description: "Nulo Grain Free Chicken, Carrots & Peas Recipe 13oz - CA", case_weight_lbs: 11.35, case_pack_qty: 12, group: "canada", category: "Dogs", line: "FreeStyle" },
-  { sku: "52AFS4", description: "FreeStyle Senior Trout 4oz Samples - Case Pack of 25", case_weight_lbs: 7.05, case_pack_qty: 25, group: "samples", category: "Dogs", line: "FreeStyle" },
   { sku: "52AL13", description: "Nulo Dog GF Lamb 13oz Can - Case Pack of 12", case_weight_lbs: 11.35, case_pack_qty: 12, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52ALS4", description: "FreeStyle Adult Lamb 4oz Samples - Case Pack of 25", case_weight_lbs: 7.05, case_pack_qty: 25, group: "samples", category: "Dogs", line: "FreeStyle" },
   { sku: "52AS13", description: "Nulo Dog GF Salmon 13oz Can - Case Pack of 12", case_weight_lbs: 11.35, case_pack_qty: 12, group: "regular", category: "Dogs", line: "FreeStyle" },
@@ -1314,17 +1282,12 @@ const SKUS = [
   { sku: "52AT13", description: "Nulo Dog GF Turkey 13oz Can - Case Pack of 12", case_weight_lbs: 11.35, case_pack_qty: 12, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52AT13-CA", description: "Nulo Grain Free Turkey & Sweet Potato Recipe 13oz - CA", case_weight_lbs: 11.35, case_pack_qty: 12, group: "canada", category: "Dogs", line: "FreeStyle" },
   { sku: "52BB02", description: "FreeStyle Grass-Fed Beef Bone Broth for Dogs & Cats 2.0 fl oz - Master Case Pack of 96", case_weight_lbs: 14.6, case_pack_qty: 96, group: "regular", category: "Dogs", line: "FreeStyle" },
-  { sku: "52BB02 - Inner Case", description: "Inner Case - FreeStyle Dog Cat Grass-Fed Beef Bone Broth 24 X 2 fl oz Packets", case_weight_lbs: null, case_pack_qty: null, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52BB20", description: "Nulo Dog Cat Beef Bone Broth 20 fl oz Pouch - Case Pack of 6", case_weight_lbs: 8.1, case_pack_qty: 6, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52BB20 - new", description: "Nulo Dog Cat Beef Bone Broth 20 fl oz Pouch", case_weight_lbs: 8.1, case_pack_qty: 6, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52BC02", description: "FreeStyle Organic Chicken Bone Broth for Dogs & Cats 2.0 fl oz - Master Case Pack of 96", case_weight_lbs: 14.6, case_pack_qty: 96, group: "regular", category: "Dogs", line: "FreeStyle" },
-  { sku: "52BC02 - Inner Case", description: "Inner Case - FreeStyle Dog Cat Organic Chicken Bone Broth 24 X 2 fl oz Packets", case_weight_lbs: null, case_pack_qty: null, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52BC20", description: "Nulo Dog Cat Chicken Bone Broth 20 fl oz Pouch - Case Pack of 6", case_weight_lbs: 8.1, case_pack_qty: 6, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52BC20 - new", description: "Nulo Dog Cat Chicken Bone Broth 20 fl oz Pouch", case_weight_lbs: 8.1, case_pack_qty: 6, group: "regular", category: "Dogs", line: "FreeStyle" },
-  { sku: "52BS02", description: "FreeStyle Wild-Caught Salmon Bone Broth for Dogs & Cats 2.0 fl oz - Master Case Pack of 96", case_weight_lbs: 14.6, case_pack_qty: 96, group: "regular", category: "Dogs", line: "FreeStyle" },
-  { sku: "52BS02 - Inner Case", description: "Inner Case - FreeStyle Dog Cat Wild-Caught Salmon Bone Broth 24 X 2 fl oz Packets", case_weight_lbs: null, case_pack_qty: null, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52BT02", description: "Master Case - FreeStyle Dog Cat Turkey Bone Broth 4 X 24 X 2 fl oz Packets - Master Case Pack of 96", case_weight_lbs: 14.6, case_pack_qty: 96, group: "regular", category: "Dogs", line: "FreeStyle" },
-  { sku: "52BT02 - Inner Case", description: "Inner Case - FreeStyle Dog Cat Organic Chicken Bone Broth 24 X 2 fl oz Packets", case_weight_lbs: null, case_pack_qty: null, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52BT20", description: "Nulo Dog Cat Turkey Bone Broth 20 fl oz Pouch - Case Pack of 6", case_weight_lbs: 8.1, case_pack_qty: 6, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52BT20 - new", description: "Nulo Dog Cat Turkey Bone Broth 20 fl oz Pouch", case_weight_lbs: 8.1, case_pack_qty: 6, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52BX20", description: "Case - Nulo Dog Cat Bone Broth Variety Pack 3 x 20 fl oz Pouches", case_weight_lbs: 4.0, case_pack_qty: 1, group: "regular", category: "Dogs", line: "FreeStyle" },
@@ -1335,24 +1298,18 @@ const SKUS = [
   { sku: "52PC13", description: "Nulo Puppy GF Chicken Salmon Lentil 13 oz Can - Case Pack of 12", case_weight_lbs: 11.35, case_pack_qty: 12, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52PCK2", description: "Case - FreeStyle Dog Chicken Green Bean 6 X 2.8 OZ Pouches - Case Pack of 6", case_weight_lbs: 13.3, case_pack_qty: 60, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52PD02", description: "FreeStyle Dog Chicken Duck Kale 24 X 2.8 oz Pouches - Case Pack of 24", case_weight_lbs: 5.25, case_pack_qty: 24, group: "regular", category: "Dogs", line: "FreeStyle" },
-  { sku: "52PDK2", description: "Case - FreeStyle Dog Chicken Duck Kale 6 X 2.8 OZ Pouches - Case Pack of 6", case_weight_lbs: 13.3, case_pack_qty: 60, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52PL02", description: "FreeStyle Dog Lamb Mackerel Kelp 24 X 2.8 oz Pouches - Case Pack of 24", case_weight_lbs: 5.25, case_pack_qty: 24, group: "regular", category: "Dogs", line: "FreeStyle" },
-  { sku: "52PLK2", description: "Case - FreeStyle Dog Lamb Saba Kelp 6 X 2.8 OZ Pouches - Case Pack of 6", case_weight_lbs: 13.3, case_pack_qty: 60, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52PM02", description: "FreeStyle Dog Mackerel Chicken Mussel 24 X 2.8 oz Pouches - Case Pack of 24", case_weight_lbs: 5.25, case_pack_qty: 24, group: "regular", category: "Dogs", line: "FreeStyle" },
-  { sku: "52PMK2", description: "Case - FreeStyle Dog Mackerel Chicken Mussel 6 X 2.8 OZ Pouches - Case Pack of 6", case_weight_lbs: 13.3, case_pack_qty: 60, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52PS02", description: "FreeStyle Dog Chicken Salmon Carrot 24 X 2.8 oz Pouches - Case Pack of 24", case_weight_lbs: 5.25, case_pack_qty: 24, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52PSK2", description: "Case - FreeStyle Dog Chicken Salmon Carrot 6 X 2.8 OZ Pouches - Case Pack of 6", case_weight_lbs: 13.3, case_pack_qty: 60, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52PSS4", description: "FreeStyle Puppy Salmon 4oz Samples - Case Pack of 25", case_weight_lbs: 7.05, case_pack_qty: 25, group: "samples", category: "Dogs", line: "FreeStyle" },
   { sku: "52PT13", description: "Nulo Puppy GF Turkey Cod Sweet Potato 13 oz Can - Case Pack of 12", case_weight_lbs: 11.35, case_pack_qty: 12, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52PXK2", description: "Master Case - FreeStyle Dog Pouch Variety Pack 10 X 6 - 2.8 OZ Pouches", case_weight_lbs: 13.3, case_pack_qty: 10, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52SD05", description: "Nulo Small Breed Dog Grain-Free Duck & Chickpeas 5.5oz Can - Case Pack of 24", case_weight_lbs: 9.5, case_pack_qty: 24, group: "regular", category: "Dogs", line: "FreeStyle" },
-  { sku: "52SD06", description: "Nulo Small Breed Dog Grain-Free Duck & Chickpeas 6oz Can - Case Pack of 24", case_weight_lbs: 12.1, case_pack_qty: null, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52SL05", description: "Nulo Small Breed Dog Grain-Free Lamb & Sweet Potato 5.5oz Can - Case Pack of 24", case_weight_lbs: 9.5, case_pack_qty: 24, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52SL05-CA", description: "Nulo Small Breed Dog Grain-Free Lamb & Sweet Potato 5.5OZ Can - CA", case_weight_lbs: 9.5, case_pack_qty: 24, group: "canada", category: "Dogs", line: "FreeStyle" },
-  { sku: "52SL06", description: "Nulo Small Breed Dog Grain-Free Lamb & Sweet Potato 6oz Can - Case Pack of 24", case_weight_lbs: 12.1, case_pack_qty: null, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52ST05", description: "Nulo Small Breed Dog Grain-Free Turkey & Lentils 5.5oz Can - Case Pack of 24", case_weight_lbs: 9.5, case_pack_qty: 24, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52ST05-CA", description: "Nulo Small Breed Dog Grain-Free Turkey & Lentils 5.5OZ Can - CA", case_weight_lbs: 9.5, case_pack_qty: 24, group: "canada", category: "Dogs", line: "FreeStyle" },
-  { sku: "52ST06", description: "Nulo Small Breed Dog Grain-Free Turkey & Lentils 6oz Can - Case Pack of 24", case_weight_lbs: 12.1, case_pack_qty: null, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "52WT13", description: "Nulo Adult Trim GF Turkey Cod 13 oz Can - Case Pack of 12", case_weight_lbs: 11.35, case_pack_qty: 12, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "53DB12", description: "Master Case - Nulo Dog GF Pate Beef & Salmon 6 cases x 5 cans x 12oz", case_weight_lbs: 22.5, case_pack_qty: 30, group: "regular", category: "Dogs", line: "FreeStyle" },
   { sku: "53DC12", description: "Master Case - Nulo Dog GF Pate Chicken & Halibut 6 cases x 5 cans x 12oz", case_weight_lbs: 22.5, case_pack_qty: 30, group: "regular", category: "Dogs", line: "FreeStyle" },
@@ -1379,39 +1336,26 @@ const SKUS = [
   { sku: "55FB08-CA", description: "CA - Nulo Dog Freeze Dried Raw Beef & Apples 8 OZ Bag", case_weight_lbs: 5.0, case_pack_qty: 8, group: "canada", category: "Dogs", line: "Freeze Dried" },
   { sku: "55FB18", description: "Nulo Dog Freeze Dried Raw Beef & Apples 18 OZ Bag", case_weight_lbs: 6.5, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Freeze Dried" },
   { sku: "55FB18-CA", description: "CA - Nulo Dog Freeze Dried Raw Beef & Apples 18 OZ Bag", case_weight_lbs: 6.5, case_pack_qty: 5, group: "canada", category: "Dogs", line: "Freeze Dried" },
-  { sku: "55FB20", description: "Nulo Culinary Harvest Baked Cat & Kitten Chicken & Duck 50LB Bulk Bag", case_weight_lbs: 50.0, case_pack_qty: null, group: "regular", category: "Dogs", line: "Freeze Dried" },
-  { sku: "55FBS1", description: "Dog Freeze Dried BEEF 1 oz - Case Pack of 50", case_weight_lbs: 5.0, case_pack_qty: null, group: "regular", category: "Dogs", line: "Freeze Dried" },
-  { sku: "55FBS1 - Old", description: "Dog Freeze Dried BEEF 1 oz - Case Pack of 50 - Given away as samples", case_weight_lbs: 5.0, case_pack_qty: null, group: "regular", category: "Dogs", line: "Freeze Dried" },
+  { sku: "55FBS1", description: "Dog Freeze Dried BEEF 1 oz - 2 inners of 12", case_weight_lbs: 5.0, case_pack_qty: 24, group: "regular", category: "Dogs", line: "Freeze Dried" },
   { sku: "55FC08", description: "Nulo Dog Freeze Dried Raw Chicken & Blueberries 8 OZ Bag", case_weight_lbs: 5.0, case_pack_qty: 8, group: "regular", category: "Dogs", line: "Freeze Dried" },
   { sku: "55FC08-CA", description: "CA - Nulo Dog Freeze Dried Raw Chicken & Blueberries 8 OZ Bag", case_weight_lbs: 5.0, case_pack_qty: 8, group: "canada", category: "Dogs", line: "Freeze Dried" },
   { sku: "55FC18", description: "Nulo Dog Freeze Dried Raw Chicken & Blueberries 18 OZ Bag", case_weight_lbs: 6.5, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Freeze Dried" },
   { sku: "55FC18-CA", description: "CA - Nulo Dog Freeze Dried Raw Chicken & Blueberries 18 OZ Bag", case_weight_lbs: 6.5, case_pack_qty: 5, group: "canada", category: "Dogs", line: "Freeze Dried" },
   { sku: "55FD08", description: "Nulo Dog Freeze Dried Raw Duck & Pear 8 OZ Bag", case_weight_lbs: 5.0, case_pack_qty: 8, group: "regular", category: "Dogs", line: "Freeze Dried" },
   { sku: "55FD18", description: "Nulo Dog Freeze Dried Raw Duck & Pear 18 OZ Bag", case_weight_lbs: 6.5, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Freeze Dried" },
-  { sku: "55FDS1", description: "FreeStyle Dog Freeze Dried Duck 1 oz Samples - Case Pack of 50", case_weight_lbs: 5.0, case_pack_qty: null, group: "regular", category: "Dogs", line: "Freeze Dried" },
   { sku: "55FL08", description: "Nulo Dog Freeze Dried Raw Lamb & Raspberries 8 OZ Bag", case_weight_lbs: 5.0, case_pack_qty: 8, group: "regular", category: "Dogs", line: "Freeze Dried" },
   { sku: "55FL08-CA", description: "CA - Nulo Dog Freeze Dried Raw Lamb & Raspberries 8 OZ Bag", case_weight_lbs: 5.0, case_pack_qty: 8, group: "canada", category: "Dogs", line: "Freeze Dried" },
   { sku: "55FL18", description: "Nulo Dog Freeze Dried Raw Lamb & Raspberries 18 OZ Bag", case_weight_lbs: 6.5, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Freeze Dried" },
   { sku: "55FL18-CA", description: "CA - Nulo Dog Freeze Dried Raw Lamb & Raspberries 18 OZ Bag", case_weight_lbs: 6.5, case_pack_qty: 5, group: "canada", category: "Dogs", line: "Freeze Dried" },
-  { sku: "55FL20", description: "Nulo Culinary Harvest Baked Cat & Kitten Chicken & Duck 50LB Bulk Bag", case_weight_lbs: 50.0, case_pack_qty: null, group: "regular", category: "Dogs", line: "Freeze Dried" },
-  { sku: "55FLS1", description: "Dog Freeze Dried Lamb 1 oz - Case Pack of 50", case_weight_lbs: 5.0, case_pack_qty: null, group: "regular", category: "Dogs", line: "Freeze Dried" },
-  { sku: "55FLS1 - Old", description: "Dog Freeze Dried Lamb 1 oz - Case Pack of 50 - Given as samples", case_weight_lbs: 5.0, case_pack_qty: null, group: "regular", category: "Dogs", line: "Freeze Dried" },
+  { sku: "55FLS1", description: "Dog Freeze Dried Lamb 1 oz - 2 inners of 12", case_weight_lbs: 5.0, case_pack_qty: 24, group: "regular", category: "Dogs", line: "Freeze Dried" },
   { sku: "55FS08", description: "Nulo Dog Freeze Dried Raw Turkey & Salmon 8 OZ Bag", case_weight_lbs: 5.0, case_pack_qty: 8, group: "regular", category: "Dogs", line: "Freeze Dried" },
   { sku: "55FS08-CA", description: "CA - Nulo Dog Freeze Dried Raw Salmon & Turkey 8 OZ Bag", case_weight_lbs: 5.0, case_pack_qty: 8, group: "canada", category: "Dogs", line: "Freeze Dried" },
   { sku: "55FS18", description: "Nulo Dog Freeze Dried Raw Turkey & Salmon 18 OZ Bag", case_weight_lbs: 6.5, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Freeze Dried" },
   { sku: "55FS18-CA", description: "CA - Nulo Dog Freeze Dried Raw Salmon & Turkey 18 OZ Bag", case_weight_lbs: 6.5, case_pack_qty: 5, group: "canada", category: "Dogs", line: "Freeze Dried" },
-  { sku: "55FSS1", description: "FreeStyle Dog Freeze Dried Salmon 1 oz Samples - Case Pack of 50", case_weight_lbs: 5.0, case_pack_qty: null, group: "regular", category: "Dogs", line: "Freeze Dried" },
   { sku: "55FT08", description: "Nulo Dog Freeze Dried Raw Turkey & Cranberries 8 OZ Bag", case_weight_lbs: 5.0, case_pack_qty: 8, group: "regular", category: "Dogs", line: "Freeze Dried" },
   { sku: "55FT08-CA", description: "CA - Nulo Dog Freeze Dried Raw Turkey & Cranberries 8 OZ Bag", case_weight_lbs: 5.0, case_pack_qty: 8, group: "canada", category: "Dogs", line: "Freeze Dried" },
   { sku: "55FT18", description: "Nulo Dog Freeze Dried Raw Turkey & Cranberries 18 OZ Bag", case_weight_lbs: 6.5, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Freeze Dried" },
   { sku: "55FT18-CA", description: "CA - Nulo Dog Freeze Dried Raw Turkey & Cranberries 18 OZ Bag", case_weight_lbs: 6.5, case_pack_qty: 5, group: "canada", category: "Dogs", line: "Freeze Dried" },
-  { sku: "55FTS1", description: "FreeStyle Dog Freeze Dried Turkey 1 oz Samples - Case Pack of 50", case_weight_lbs: 5.0, case_pack_qty: null, group: "regular", category: "Dogs", line: "Freeze Dried" },
-  { sku: "55FXL1", description: "Nulo Dog Freeze Dried 2 x 13oz (Beef and Turkey)", case_weight_lbs: 2.6, case_pack_qty: null, group: "regular", category: "Dogs", line: "Freeze Dried" },
-  { sku: "55FXL2", description: "Nulo Dog Freeze Dried 2 x 13oz (Duck and Lamb)", case_weight_lbs: 2.6, case_pack_qty: null, group: "regular", category: "Dogs", line: "Freeze Dried" },
-  { sku: "55FXL3", description: "Nulo Dog Freeze Dried 2 x 13oz (Duck and Lamb)", case_weight_lbs: 2.6, case_pack_qty: null, group: "regular", category: "Dogs", line: "Freeze Dried" },
-  { sku: "55FXS1", description: "Nulo Dog Freeze Dried 2 x 5oz (Beef and Turkey)", case_weight_lbs: 1.2, case_pack_qty: null, group: "regular", category: "Dogs", line: "Freeze Dried" },
-  { sku: "55FXS2", description: "Nulo Dog Freeze Dried 2 x 5oz (Duck and Lamb)", case_weight_lbs: 1.2, case_pack_qty: null, group: "oos", category: "Dogs", line: "Freeze Dried" },
-  { sku: "55FXS3", description: "Nulo Dog Freeze Dried 2 x 5oz (Beef and Salmon)", case_weight_lbs: 1.2, case_pack_qty: null, group: "regular", category: "Dogs", line: "Freeze Dried" },
   { sku: "56BG05", description: "Nulo Functional Jerky Gut Health Lamb & Turkey Dog Treats 5OZ Bag", case_weight_lbs: 5.18, case_pack_qty: 12, group: "regular", category: "Treats & Supplements", line: "Treats" },
   { sku: "56BH05", description: "Nulo Functional Jerky Healthy Heart Beef & Salmon Dog Treats 5OZ Bag", case_weight_lbs: 5.18, case_pack_qty: 12, group: "regular", category: "Treats & Supplements", line: "Treats" },
   { sku: "56BM05", description: "Nulo Functional Jerky Mobility Chicken Dog Treats 5OZ Bag", case_weight_lbs: 5.18, case_pack_qty: 12, group: "regular", category: "Treats & Supplements", line: "Treats" },
@@ -1427,9 +1371,6 @@ const SKUS = [
   { sku: "56JS05-CA", description: "CA - Nulo Dog Jerky Strips GF Salmon With Strawberries 5OZ Bag", case_weight_lbs: 4.8, case_pack_qty: 12, group: "canada", category: "Treats & Supplements", line: "Treats" },
   { sku: "56JT05", description: "Nulo Jerky Strips Turkey With Cranberries 5oz - Case Pack of 12", case_weight_lbs: 4.8, case_pack_qty: 12, group: "regular", category: "Treats & Supplements", line: "Treats" },
   { sku: "56JT05-CA", description: "CA - Nulo Dog Jerky Strips GF Turkey With Cranberries 5OZ Bag", case_weight_lbs: 4.8, case_pack_qty: 12, group: "canada", category: "Treats & Supplements", line: "Treats" },
-  { sku: "56JXBC", description: "FreeStyle Jerky Beef & Chicken Variety Pack - 24 packs per case", case_weight_lbs: 19.3, case_pack_qty: 24, group: "regular", category: "Treats & Supplements", line: "Treats" },
-  { sku: "56JXST", description: "FreeStyle Jerky Salmon & Turkey Variety Pack - 24 packs per case", case_weight_lbs: 19.3, case_pack_qty: 24, group: "regular", category: "Treats & Supplements", line: "Treats" },
-  { sku: "56SS04", description: "FreeStyle Protein Sticks Dog Treats Salmon Recipe 0.4 oz - Master Case - 16 Inner Cases - 256 Eaches", case_weight_lbs: 11.85, case_pack_qty: null, group: "regular", category: "Treats & Supplements", line: "Treats" },
   { sku: "56TD04", description: "Nulo Trainers Duck 4oz - Case Pack of 12", case_weight_lbs: 3.5, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Treats" },
   { sku: "56TD04-CA", description: "CA - Nulo Dog Trainers GF Duck 4OZ Bag", case_weight_lbs: 3.5, case_pack_qty: 12, group: "canada", category: "Dogs", line: "Treats" },
   { sku: "56TD16", description: "Nulo Dog Training Treat Duck 16 OZ Bag", case_weight_lbs: 7.25, case_pack_qty: 6, group: "regular", category: "Treats & Supplements", line: "Treats" },
@@ -1440,12 +1381,6 @@ const SKUS = [
   { sku: "56TT04-CA", description: "CA - Nulo Dog Trainers GF Turkey 4OZ Bag", case_weight_lbs: 3.5, case_pack_qty: 12, group: "canada", category: "Dogs", line: "Treats" },
   { sku: "56TT16", description: "Nulo Dog Training Treat Turkey 16 OZ Bag", case_weight_lbs: 7.25, case_pack_qty: 6, group: "regular", category: "Treats & Supplements", line: "Treats" },
   { sku: "56TXS1", description: "Nulo Training Treats Variety Pack - 4oz x 3 - Duck, Salmon, Turkey", case_weight_lbs: 1.0, case_pack_qty: 1, group: "regular", category: "Treats & Supplements", line: "Treats" },
-  { sku: "56YML3", description: "Nulo Dog Yak Chew Mint Large Bars - 3 Count Pouch", case_weight_lbs: 9.44, case_pack_qty: 10, group: "regular", category: "Treats & Supplements", line: "Treats" },
-  { sku: "56YMM5", description: "Nulo Dog Yak Chew Mint Medium Bars - 5 Count Pouch", case_weight_lbs: 8.75, case_pack_qty: 10, group: "regular", category: "Treats & Supplements", line: "Treats" },
-  { sku: "56YOL3", description: "Nulo Dog Yak Chew Original Large Bars - 3 Count Pouch", case_weight_lbs: 9.44, case_pack_qty: 10, group: "regular", category: "Treats & Supplements", line: "Treats" },
-  { sku: "56YOM5", description: "Nulo Dog Yak Chew Original Medium Bars - 5 Count Pouch", case_weight_lbs: 8.75, case_pack_qty: 10, group: "regular", category: "Treats & Supplements", line: "Treats" },
-  { sku: "56YTL3", description: "Nulo Dog Yak Chew Turmeric Large Bars - 3 Count Pouch", case_weight_lbs: 9.44, case_pack_qty: 10, group: "regular", category: "Treats & Supplements", line: "Treats" },
-  { sku: "56YTM5", description: "Nulo Dog Yak Chew Turmeric Medium Bars - 5 Count Pouch", case_weight_lbs: 8.75, case_pack_qty: 10, group: "regular", category: "Treats & Supplements", line: "Treats" },
   { sku: "61HT04", description: "ECOM - FS CAT HAIRBALL TURKEY 4lb - Case Pack of 4", case_weight_lbs: 16.4, case_pack_qty: 4, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "61HT05", description: "FreeStyle Adult Hairball Management Turkey & Cod 5lb - Case Pack of 4", case_weight_lbs: 20.45, case_pack_qty: 4, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "61HT05-CA", description: "CA - FreeStyle Adult Cat Hairball Management Turkey & Cod 5LB Bag", case_weight_lbs: 20.45, case_pack_qty: 4, group: "canada", category: "Cats", line: "FreeStyle" },
@@ -1464,7 +1399,6 @@ const SKUS = [
   { sku: "61KC04", description: "ECOM - FS CAT & KITTEN GF CHKN 4lb - Case Pack of 4", case_weight_lbs: 16.4, case_pack_qty: 4, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "61KC05", description: "FreeStyle Cat & Kitten Chicken & Cod 5lb - Case Pack of 4", case_weight_lbs: 20.45, case_pack_qty: 4, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "61KC05-CA", description: "CA - FreeStyle Cat & Kitten GF Chicken & Cod 5LB Bag", case_weight_lbs: 20.45, case_pack_qty: 4, group: "canada", category: "Cats", line: "FreeStyle" },
-  { sku: "61KC10", description: "FreeStyle Cat & Kitten Chicken & Cod 10lb", case_weight_lbs: 10.2, case_pack_qty: 1, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "61KC12", description: "FreeStyle Cat & Kitten Chicken & Cod 12lb", case_weight_lbs: 12.2, case_pack_qty: 1, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "61KC12-CA", description: "CA - FreeStyle Cat & Kitten GF Chicken & Cod 12LB Bag", case_weight_lbs: 12.2, case_pack_qty: 1, group: "canada", category: "Cats", line: "FreeStyle" },
   { sku: "61KC14", description: "ECOM - FS CAT & KITTEN GF CHKN 14lb", case_weight_lbs: 14.15, case_pack_qty: 1, group: "regular", category: "Cats", line: "FreeStyle" },
@@ -1499,29 +1433,21 @@ const SKUS = [
   { sku: "62BXP2", description: "FreeStyle Cat Chunky Broth 4 Recipe Variety Pack 2 Case x 12 Pouches x 2.8oz", case_weight_lbs: 5.2, case_pack_qty: 2, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "62IDS2", description: "FreeStyle Indoor Cat Duck & Lentils 2oz Samples - Case Pack of 25", case_weight_lbs: 3.65, case_pack_qty: 25, group: "samples", category: "Cats", line: "FreeStyle" },
   { sku: "63AB05", description: "Nulo Cat GF Beef 5.5oz Can - Case Pack of 24", case_weight_lbs: 9.5, case_pack_qty: 24, group: "regular", category: "Cats", line: "FreeStyle" },
-  { sku: "63ABA5", description: "Case - Nulo Cat GF Beef 5 x 5.5oz Cans - Case Pack of 5", case_weight_lbs: 2.12, case_pack_qty: null, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63AC05", description: "Nulo Cat GF Chicken 5.5oz Can - Case Pack of 24", case_weight_lbs: 9.5, case_pack_qty: 24, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63AC05-CA", description: "Nulo Cat Grain Free Chicken 5.5oz - CA", case_weight_lbs: 9.5, case_pack_qty: 24, group: "canada", category: "Cats", line: "FreeStyle" },
-  { sku: "63ACA5", description: "Case - Nulo Cat GF Chicken 5 x 5.5oz Cans - Case Pack of 5", case_weight_lbs: 2.12, case_pack_qty: null, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63AD05", description: "Nulo Cat GF Duck 5.5oz Can - Case Pack of 24", case_weight_lbs: 9.5, case_pack_qty: 24, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63AD05-CA", description: "Nulo Cat Grain Free Duck 5.5oz - CA", case_weight_lbs: 9.5, case_pack_qty: 24, group: "canada", category: "Cats", line: "FreeStyle" },
   { sku: "63AD12", description: "Nulo Cat GF Duck 12.5oz Can - Case Pack of 12", case_weight_lbs: 10.95, case_pack_qty: 12, group: "regular", category: "Cats", line: "FreeStyle" },
-  { sku: "63ADA5", description: "Case - Nulo Cat GF Duck 5 x 5.5oz Cans - Case Pack of 5", case_weight_lbs: 2.12, case_pack_qty: null, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63AF05", description: "Nulo Cat GF Trout 5.5oz Can - Case Pack of 24", case_weight_lbs: 9.5, case_pack_qty: 24, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63AF05-CA", description: "Nulo Cat Grain Free Trout 5.5oz - CA", case_weight_lbs: 9.5, case_pack_qty: 24, group: "canada", category: "Cats", line: "FreeStyle" },
-  { sku: "63AFA5", description: "Case - Nulo Cat GF Trout 5 x 5.5oz Cans - Case Pack of 5", case_weight_lbs: 2.12, case_pack_qty: null, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63AS05", description: "Nulo Cat GF Salmon 5.5oz Can - Case Pack of 24", case_weight_lbs: 9.5, case_pack_qty: 24, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63AS05-CA", description: "Nulo Cat Grain Free Salmon 5.5oz - CA", case_weight_lbs: 9.5, case_pack_qty: 24, group: "canada", category: "Cats", line: "FreeStyle" },
   { sku: "63AS12", description: "Nulo Cat GF Salmon 12.5oz Can - Case Pack of 12", case_weight_lbs: 10.95, case_pack_qty: 12, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63AS12-CA", description: "Nulo Salmon & Mackerel 12.5 oz - CA", case_weight_lbs: 10.95, case_pack_qty: 12, group: "canada", category: "Cats", line: "FreeStyle" },
-  { sku: "63ASA5", description: "Case - Nulo Cat GF Salmon 5 x 5.5oz Cans - Case Pack of 5", case_weight_lbs: 2.12, case_pack_qty: null, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63AT05", description: "Nulo Cat GF Turkey 5.5oz Can - Case Pack of 24", case_weight_lbs: 9.5, case_pack_qty: 24, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63AT05-CA", description: "Nulo Cat Grain Free Turkey 5.5oz - CA", case_weight_lbs: 9.5, case_pack_qty: 24, group: "canada", category: "Cats", line: "FreeStyle" },
   { sku: "63AT12", description: "Nulo Cat GF Turkey 12.5oz Can - Case Pack of 12", case_weight_lbs: 10.95, case_pack_qty: 12, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63AT12-CA", description: "Nulo Turkey & Chicken 12.5 oz - CA", case_weight_lbs: 10.95, case_pack_qty: 12, group: "canada", category: "Cats", line: "FreeStyle" },
-  { sku: "63ATA5", description: "Case - Nulo Cat GF Turkey 5 x 5.5oz Cans - Case Pack of 5", case_weight_lbs: 2.12, case_pack_qty: null, group: "regular", category: "Cats", line: "FreeStyle" },
-  { sku: "63AX12", description: "Case - Nulo Cat Variety Pack (Turkey, Duck, Salmon) 12 x 12.5oz Cans", case_weight_lbs: 11.0, case_pack_qty: null, group: "regular", category: "Cats", line: "FreeStyle" },
-  { sku: "63AXA5", description: "Case - Nulo Cat GF Variety Pack (Turkey, Duck, Trout, Salmon, Chicken) 5 x 5.5oz Cans", case_weight_lbs: 2.12, case_pack_qty: null, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63CC02", description: "Master Case - FreeStyle Cat & Kitten Chicken & Chicken Liver Pate 8 x 12 x 2.8oz Cans - Master Case Pack of 96", case_weight_lbs: 21.1, case_pack_qty: 96, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63CS02", description: "Master Case - FreeStyle Cat & Kitten Chicken & Salmon Pate 8 x 12 x 2.8oz Cans - Master Case Pack of 96", case_weight_lbs: 21.1, case_pack_qty: 96, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63CT02", description: "Master Case - FreeStyle Cat & Kitten Yellowfin Tuna & Shrimp Pate 8 x 12 x 2.8oz Cans - Master Case Pack of 96", case_weight_lbs: 21.1, case_pack_qty: 96, group: "regular", category: "Cats", line: "FreeStyle" },
@@ -1579,17 +1505,11 @@ const SKUS = [
   { sku: "63NT06-CA", description: "CA - Nulo Cat & Kitten Finely Minced Chicken & Tuna 6OZ Can", case_weight_lbs: 15.6, case_pack_qty: 32, group: "canada", category: "Cats", line: "FreeStyle" },
   { sku: "63NX02", description: "Master Case - Nulo Cat & Kitten Finely Minced Variety Pack 8 x 12 x 2.8OZ Cans", case_weight_lbs: 16.8, case_pack_qty: 8, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63PB02", description: "FreeStyle Cat Sardine Beef 24 X 2.8 oz Pouches - Case Pack of 24", case_weight_lbs: 5.25, case_pack_qty: 24, group: "regular", category: "Cats", line: "FreeStyle" },
-  { sku: "63PBK2", description: "Case - FreeStyle Cat Sardine Beef 6 X 2.8 OZ Pouches - Case Pack of 6", case_weight_lbs: 13.3, case_pack_qty: 60, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63PC02", description: "FreeStyle Cat Chicken 24 X 2.8 oz Pouches - Case Pack of 24", case_weight_lbs: 5.25, case_pack_qty: 24, group: "regular", category: "Cats", line: "FreeStyle" },
-  { sku: "63PCK2", description: "Case - FreeStyle Cat Chicken 6 X 2.8 OZ Pouches - Case Pack of 6", case_weight_lbs: 13.3, case_pack_qty: 60, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63PD02", description: "FreeStyle Cat Chicken Tuna Duck 24 X 2.8 oz Pouches - Case Pack of 24", case_weight_lbs: 5.25, case_pack_qty: 24, group: "regular", category: "Cats", line: "FreeStyle" },
-  { sku: "63PDK2", description: "Case - FreeStyle Cat Chicken Tuna Duck 6 X 2.8 OZ Pouches - Case Pack of 6", case_weight_lbs: 13.3, case_pack_qty: 60, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63PM02", description: "FreeStyle Cat Chicken Mackerel 24 X 2.8 oz Pouches - Case Pack of 24", case_weight_lbs: 5.25, case_pack_qty: 24, group: "regular", category: "Cats", line: "FreeStyle" },
-  { sku: "63PMK2", description: "Case - FreeStyle Cat Chicken Mackerel 6 X 2.8 OZ Pouches - Case Pack of 6", case_weight_lbs: 13.3, case_pack_qty: 60, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63PS02", description: "FreeStyle Cat Chicken Salmon 24 X 2.8 oz Pouches - Case Pack of 24", case_weight_lbs: 5.25, case_pack_qty: 24, group: "regular", category: "Cats", line: "FreeStyle" },
-  { sku: "63PSK2", description: "Case - FreeStyle Cat Chicken Salmon 6 X 2.8 OZ Pouches - Case Pack of 6", case_weight_lbs: 13.3, case_pack_qty: 60, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63PT02", description: "FreeStyle Cat Tuna Shrimp 24 X 2.8 oz Pouches - Case Pack of 24", case_weight_lbs: 5.25, case_pack_qty: 24, group: "regular", category: "Cats", line: "FreeStyle" },
-  { sku: "63PTK2", description: "Case - FreeStyle Cat Tuna Shrimp 6 X 2.8 OZ Pouches - Case Pack of 6", case_weight_lbs: 13.3, case_pack_qty: 60, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63PXK2", description: "Master Case - FreeStyle Cat Pouch Variety Pack 10 X 6 - 2.8 OZ Pouches", case_weight_lbs: 13.3, case_pack_qty: 10, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63SB03", description: "Nulo Cat Shredded Beef & Rainbow Trout Recipe 3oz Can - Case Pack of 24", case_weight_lbs: 5.25, case_pack_qty: 24, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63SB03-CA", description: "Nulo Shredded Beef & Rainbow Trout Recipe-\"Poultry-Free\" 3 oz - CA", case_weight_lbs: 5.25, case_pack_qty: 24, group: "canada", category: "Cats", line: "FreeStyle" },
@@ -1620,40 +1540,21 @@ const SKUS = [
   { sku: "63XS05", description: "Variety Pack Nulo Cat GF Salmon Trout Beef Variety Pack 24 x 5.5OZ Cans", case_weight_lbs: 8.25, case_pack_qty: 1, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "63XT05", description: "Variety Pack Nulo Cat GF Turkey Duck Chicken Variety Pack 24 x 5.5OZ Cans", case_weight_lbs: 8.25, case_pack_qty: 1, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "64SB05", description: "FreeStyle Cat Grain-Free Beef & Sardine Puree 0.5oz Sachet - Case Pack of 48", case_weight_lbs: 2.05, case_pack_qty: 48, group: "regular", category: "Cats", line: "FreeStyle" },
-  { sku: "64SBP5", description: "Master Case - FreeStyle Cat GF Beef & Sardine Puree 12 Sleeve X 6 Sachets X 0.5 OZ", case_weight_lbs: 2.9, case_pack_qty: 72, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "64SC05", description: "FreeStyle Cat Grain-Free Chicken Puree 0.5oz Sachet - Case Pack of 48", case_weight_lbs: 2.05, case_pack_qty: 48, group: "regular", category: "Cats", line: "FreeStyle" },
-  { sku: "64SCP5", description: "Master Case - FreeStyle Cat GF Chicken Puree 12 X 6 X 0.5 oz Sachets - Master Case Pack of 72", case_weight_lbs: 2.9, case_pack_qty: 72, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "64SO05", description: "FreeStyle Cat Grain-Free Tuna & Scallop Puree 0.5oz Sachet - Case Pack of 48", case_weight_lbs: 2.05, case_pack_qty: 48, group: "regular", category: "Cats", line: "FreeStyle" },
-  { sku: "64SOP5", description: "Master Case - FreeStyle Cat GF Tuna & Scallop Puree 12 X 6 X 0.5 oz Sachets", case_weight_lbs: 2.9, case_pack_qty: 72, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "64SS05", description: "FreeStyle Cat Grain-Free Chicken & Salmon Puree 0.5oz Sachet - Case Pack of 48", case_weight_lbs: 2.05, case_pack_qty: 48, group: "regular", category: "Cats", line: "FreeStyle" },
-  { sku: "64SSP5", description: "Master Case - FreeStyle Cat GF Chicken & Salmon Puree 12 X 6 X 0.5 oz Sachets", case_weight_lbs: 2.9, case_pack_qty: 72, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "64ST05", description: "FreeStyle Cat Grain-Free Tuna & Crab Puree 0.5oz Sachet - Case Pack of 48", case_weight_lbs: 2.05, case_pack_qty: 48, group: "regular", category: "Cats", line: "FreeStyle" },
-  { sku: "64STP5", description: "Master Case - FreeStyle Cat GF Tuna & Crab Puree 12 X 6 X 0.5 oz Sachets", case_weight_lbs: 2.9, case_pack_qty: 72, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "64SX40", description: "Megapack - FreeStyle Cat GF Puree Variety Pack 40 X 0.5 OZ Sachets", case_weight_lbs: 1.7, case_pack_qty: 1, group: "regular", category: "Cats", line: "FreeStyle" },
   { sku: "64SXP5", description: "Sleeve Master Case - FreeStyle Cat GF Puree Variety Pack 12 Sleeves X 10 Sachets X 0.5 OZ Sachets", case_weight_lbs: 4.95, case_pack_qty: 12, group: "regular", category: "Cats", line: "FreeStyle" },
-  { sku: "65FC03", description: "Nulo Freeze-Dried Raw Cat & Kitten Chicken & Salmon 3.5oz - Case Pack of 12", case_weight_lbs: 5.0, case_pack_qty: 12, group: "regular", category: "Cats", line: "Freeze Dried" },
   { sku: "65FC05", description: "Nulo Cat Freeze Dried Raw Chicken & Salmon 5.5 OZ Bag", case_weight_lbs: 3.0, case_pack_qty: 8, group: "regular", category: "Cats", line: "Freeze Dried" },
   { sku: "65FC05-CA", description: "CA - Nulo Cat Freeze Dried Raw Chicken & Salmon 5.5 OZ Bag", case_weight_lbs: 3.0, case_pack_qty: 8, group: "canada", category: "Cats", line: "Freeze Dried" },
-  { sku: "65FC08", description: "Nulo Freeze-Dried Raw Cat & Kitten Chicken & Salmon 8oz - Case Pack of 8", case_weight_lbs: 5.0, case_pack_qty: 8, group: "regular", category: "Cats", line: "Freeze Dried" },
   { sku: "65FC16", description: "Nulo Cat Freeze Dried Raw Chicken & Salmon 16 OZ Bag", case_weight_lbs: 6.5, case_pack_qty: 5, group: "regular", category: "Cats", line: "Freeze Dried" },
   { sku: "65FT03", description: "Nulo Freeze-Dried Raw Cat & Kitten Turkey & Duck 3.5oz - Case Pack of 12", case_weight_lbs: 5.0, case_pack_qty: 12, group: "regular", category: "Cats", line: "Freeze Dried" },
   { sku: "65FT05", description: "Nulo Cat Freeze Dried Raw Turkey & Duck 5.5 OZ Bag", case_weight_lbs: 3.0, case_pack_qty: 8, group: "regular", category: "Cats", line: "Freeze Dried" },
   { sku: "65FT05-CA", description: "CA - Nulo Cat Freeze Dried Raw Turkey & Duck 5.5 OZ Bag", case_weight_lbs: 3.0, case_pack_qty: 8, group: "canada", category: "Cats", line: "Freeze Dried" },
-  { sku: "65FT08", description: "Nulo Freeze-Dried Raw Cat & Kitten Turkey & Duck 8oz - Case Pack of 8", case_weight_lbs: 5.0, case_pack_qty: 8, group: "regular", category: "Cats", line: "Freeze Dried" },
   { sku: "65FT16", description: "Nulo Cat Freeze Dried Raw Turkey & Duck 16 OZ Bag", case_weight_lbs: 6.5, case_pack_qty: 5, group: "regular", category: "Cats", line: "Freeze Dried" },
-  { sku: "65FXL1", description: "Nulo Cat Freeze Dried Variety Pack 2 x 8oz (Chicken and Turkey)", case_weight_lbs: 1.8, case_pack_qty: null, group: "regular", category: "Cats", line: "Freeze Dried" },
-  { sku: "65FXS1", description: "Nulo Cat Freeze Dried Variety Pack 2 x 3.5oz (Chicken and Turkey)", case_weight_lbs: 0.94, case_pack_qty: null, group: "regular", category: "Cats", line: "Freeze Dried" },
-  { sku: "66BD04", description: "Nulo Digestive Health Chicken Recipe Functional Cat Treats 4OZ Bag", case_weight_lbs: 3.5, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
-  { sku: "66BH04", description: "Nulo Healthy Heart Beef Recipe Functional Cat Treats 4OZ Bag", case_weight_lbs: 3.5, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
-  { sku: "66BS04", description: "Nulo Skin & Coat Salmon Recipe Functional Cat Treats 4OZ Bag", case_weight_lbs: 3.5, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
-  { sku: "66JH04", description: "Nulo Functional Jerky Healthy Heart Beef & Lamb Cat Treats 4OZ Bags", case_weight_lbs: 3.63, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
-  { sku: "66JK04", description: "Nulo Functional Jerky Kitten Chicken & Salmon  Cat Treats 4OZ Bag", case_weight_lbs: 3.63, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
-  { sku: "66JS04", description: "Nulo Functional Jerky Skin & Coat Salmon Cat Treats 4OZ Bags", case_weight_lbs: 3.63, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
   { sku: "71AC04", description: "MedalSeries Adult Dog Chicken & Peas 4.5lb - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "71AC11", description: "MedalSeries Adult Dog Chicken & Peas 11lb", case_weight_lbs: 11.2, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71AC24", description: "MedalSeries Adult Dog Chicken & Peas 24lb", case_weight_lbs: 24.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "71AL04", description: "MedalSeries Adult Dog Lamb & Lentils 4.5lb - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "71AL11", description: "MedalSeries Adult Dog Lamb & Lentils 11lb", case_weight_lbs: 11.2, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71AL24", description: "MedalSeries Adult Dog Lamb & Lentils 24lb", case_weight_lbs: 24.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71AS04", description: "MedalSeries Adult Dog Salmon & Sweet Potato 4.5lb - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71AS11", description: "MedalSeries Adult Dog Salmon & Sweet Potato 11lb", case_weight_lbs: 11.2, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
@@ -1685,21 +1586,15 @@ const SKUS = [
   { sku: "71GB04", description: "MedalSeries Ancient Grains Adult Beef Barley & Lamb 4.5 lb - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71GB11", description: "MedalSeries Ancient Grains Adult Beef Barley & Lamb 11 lb", case_weight_lbs: 11.2, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71GB24", description: "MedalSeries Ancient Grains Adult Beef Barley & Lamb 24 lb", case_weight_lbs: 24.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "71GBS4", description: "Medal Series Ancient Grains Adult Dog Beef Barley & Lamb 4 OZ Sample - Case Pack of 25", case_weight_lbs: 7.05, case_pack_qty: 25, group: "oos", category: "Dogs", line: "Medal Series" },
+  { sku: "71GBS4", description: "Medal Series Ancient Grains Adult Dog Beef Barley & Lamb 4 OZ Sample - Case Pack of 25", case_weight_lbs: 7.05, case_pack_qty: 25, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71GP04", description: "MedalSeries Ancient Grains Puppy Turkey, Oats, & Guinea Fowl 4.5 lb - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71GP11", description: "MedalSeries Ancient Grains Puppy Turkey, Oats, & Guinea Fowl 11 lb", case_weight_lbs: 11.2, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71GP24", description: "MedalSeries Ancient Grains Puppy Turkey, Oats, & Guinea Fowl 24 lb", case_weight_lbs: 24.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71GS04", description: "MedalSeries Ancient Grains Adult Salmon, Oats, & Haddock 4.5 lb - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71GS11", description: "MedalSeries Ancient Grains Adult Salmon, Oats, & Haddock 11 lb", case_weight_lbs: 11.2, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71GS24", description: "MedalSeries Ancient Grains Adult Salmon, Oats, & Haddock 24 lb", case_weight_lbs: 24.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "71GT04", description: "MedalSeries Ancient Grains Adult Turkey, Oats, & Guinea Fowl 4.5 lb - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "71GT11", description: "MedalSeries Ancient Grains Adult Turkey, Oats, & Guinea Fowl 11 lb", case_weight_lbs: 11.2, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "71GT24", description: "MedalSeries Ancient Grains Adult Turkey, Oats, & Guinea Fowl 24 lb", case_weight_lbs: 24.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71GZ04", description: "MedalSeries Ancient Grains Small Breed Salmon, Oats, & Acadian Redfish 4.5 lb - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71GZ11", description: "MedalSeries Ancient Grains Small Breed Salmon, Oats, & Acadian Redfish 11 lb", case_weight_lbs: 11.2, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "71GZS4", description: "Medal Series Ancient Grains Small Breed Salmon, Oats, & Acadian Redfish 4 OZ Sample - Case Pack of 25", case_weight_lbs: 7.05, case_pack_qty: 25, group: "oos", category: "Dogs", line: "Medal Series" },
-  { sku: "71LC04", description: "MedalSeries Puppy & Adult L.I.D. Chicken 4lb - Case Pack of 5", case_weight_lbs: 20.5, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "71LC10", description: "MedalSeries Puppy & Adult L.I.D. Chicken 10lb", case_weight_lbs: 10.15, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71LC22", description: "MedalSeries Puppy & Adult L.I.D. Chicken 22lb", case_weight_lbs: 22.2, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71LS04", description: "MedalSeries Puppy & Adult L.I.D. Salmon 4lb - Case Pack of 5", case_weight_lbs: 20.5, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71LS10", description: "MedalSeries Puppy & Adult L.I.D. Salmon 10lb", case_weight_lbs: 10.15, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
@@ -1712,66 +1607,35 @@ const SKUS = [
   { sku: "71PC04", description: "MedalSeries Puppy Chicken & Sweet Potato 4.5lb - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71PC11", description: "MedalSeries Puppy Chicken & Sweet Potato 11lb", case_weight_lbs: 11.2, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71PC24", description: "MedalSeries Puppy Chicken & Sweet Potato 24lb", case_weight_lbs: 24.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "71PL04", description: "Medal Series GF Large Breed Puppy Salmon & Sweet Potato 4.5LB Bag - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71PL24", description: "Medal Series GF Large Breed Puppy Salmon & Sweet Potato 24LB Bag", case_weight_lbs: 24.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "71PS04", description: "MedalSeries GF Puppy Salmon & Lentils 4.5LB Bag", case_weight_lbs: 22.0, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71PS24", description: "MedalSeries GF Puppy Salmon & Lentils 24LB Bag", case_weight_lbs: 24.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "71SC04", description: "MedalSeries Senior Chicken & Lentils 4.5lb - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71SC24", description: "MedalSeries Senior Chicken & Lentils 24lb", case_weight_lbs: 24.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "71SP04", description: "MedalSeries GF Small Breed Dog Chicken & Sweet Potato 4.5LB Bag", case_weight_lbs: 22.0, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71SP11", description: "MedalSeries GF Small Breed Dog Chicken & Sweet Potato 11LB Bag", case_weight_lbs: 11.2, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71ST04", description: "MedalSeries Small Breed Puppy & Adult Turkey & Chickpeas 4.5lb - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71ST11", description: "MedalSeries Small Breed Puppy & Adult Turkey & Chickpeas 11lb", case_weight_lbs: 11.2, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71WC04", description: "MedalSeries Adult Dog Weight Management Chicken & Sweet Potato 4.5lb - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "71WC11", description: "MedalSeries Adult Dog Weight Management Chicken & Sweet Potato 11lb", case_weight_lbs: 11.2, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "71WC24", description: "MedalSeries Adult Dog Weight Management Chicken & Sweet Potato 24lb", case_weight_lbs: 24.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "72AB13", description: "Medal Series Dog Grain Free Beef - Case Pack of 12", case_weight_lbs: 11.35, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "72AC13", description: "Medal Series Dog Grain Free Chicken - Case Pack of 12", case_weight_lbs: 11.35, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "72AL13", description: "Medal Series Dog Grain Free Lamb - Case Pack of 12", case_weight_lbs: 11.35, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "72ALS4", description: "MedalSeries Adult Dog Lamb & Lentils 4oz Samples - Case Pack of 25", case_weight_lbs: 7.05, case_pack_qty: 25, group: "samples", category: "Dogs", line: "Medal Series" },
   { sku: "72AS13", description: "Medal Series Dog Grain Free Salmon - Case Pack of 12", case_weight_lbs: 11.35, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "72AT13", description: "Medal Series Dog Grain Free Turkey - Case Pack of 12", case_weight_lbs: 11.35, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "72BB02", description: "MedalSeries Grass-Fed Beef Bone Broth for Dogs & Cats 2.0 fl oz - Master Case Pack of 96", case_weight_lbs: 14.6, case_pack_qty: 96, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "72BB02 - Inner Case", description: "Inner Case - MedalSeries Dog Cat Grass-Fed Beef Bone Broth 24 X 2 fl oz Packets", case_weight_lbs: null, case_pack_qty: null, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "72BB20", description: "Medal Series Dog Cat Beef Bone Broth 20 fl oz Pouch - Case Pack of 6", case_weight_lbs: 8.1, case_pack_qty: 6, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "72BC02", description: "MedalSeries Organic Chicken Bone Broth for Dogs & Cats 2.0 fl oz - Master Case Pack of 96", case_weight_lbs: 14.6, case_pack_qty: 96, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "72BC02 - Inner Case", description: "Inner Case - MedalSeries Dog Cat Grass-Fed Beef Bone Broth 24 X 2 fl oz Packets", case_weight_lbs: null, case_pack_qty: null, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "72BC20", description: "Medal Series Dog Cat Chicken Bone Broth 20 fl oz Pouch - Case Pack of 6", case_weight_lbs: 8.1, case_pack_qty: 6, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "72BS02", description: "MedalSeries Wild-Caught Salmon Bone Broth for Dogs & Cats 2.0 fl oz - Master Case Pack of 96", case_weight_lbs: 14.6, case_pack_qty: 96, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "72BS02 - Inner Case", description: "Inner Case - MedalSeries Dog Cat Wild-Caught Salmon Bone Broth 24 X 2 fl oz Packets", case_weight_lbs: null, case_pack_qty: null, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "72BT02", description: "MedalSeries Turkey Bone Broth 2oz - Master Case Pack of 96", case_weight_lbs: 14.6, case_pack_qty: 96, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "72BT02 - Inner Case", description: "Inner Case - FreeStyle Dog Cat Organic Chicken Bone Broth 24 X 2 fl oz Packets", case_weight_lbs: null, case_pack_qty: null, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "72BT20", description: "Medal Series Dog Cat Turkey Bone Broth 20 fl oz Pouch - Case Pack of 6", case_weight_lbs: 8.1, case_pack_qty: 6, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "72LC13", description: "Medal Series Dog GF L.I.D. Chicken 13 oz Can - Case Pack of 6", case_weight_lbs: 5.96, case_pack_qty: null, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "72LT13", description: "Medal Series Dog GF L.I.D. Turkey 13 oz Can - Case Pack of 6", case_weight_lbs: 5.96, case_pack_qty: null, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "72MB12", description: "MedalSeries Dog 95% Beef 12 x 12.5oz Cans - Case Pack of 12", case_weight_lbs: 10.95, case_pack_qty: null, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "72MC12", description: "MedalSeries Dog 95% Chicken 12 x 12.5oz Cans - Case Pack of 12", case_weight_lbs: 10.95, case_pack_qty: null, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "72MD12", description: "MedalSeries Dog 95% Duck 12 x 12.5oz Cans - Case Pack of 12", case_weight_lbs: 10.95, case_pack_qty: null, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "72MT12", description: "MedalSeries Dog 95% Turkey 12 x 12.5oz Cans - Case Pack of 12", case_weight_lbs: 10.95, case_pack_qty: null, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "72PB02", description: "MedalSeries Dog Beef, Beef Liver, & Kale in Broth 2.8oz Pouch - Case Pack of 24", case_weight_lbs: 5.25, case_pack_qty: 24, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "72PC02", description: "MedalSeries Dog Chicken & Green Beans in Broth 2.8oz Pouch - Case Pack of 24", case_weight_lbs: 5.25, case_pack_qty: 24, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "72PC13", description: "MedalSeries GF Puppy Chicken, Salmon & Lentil 13 oz - Case Pack of 12", case_weight_lbs: 11.35, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "72PCS4", description: "MedalSeries Puppy Chicken & Sweet Potato 4oz Samples - Case Pack of 25", case_weight_lbs: 7.05, case_pack_qty: 25, group: "samples", category: "Dogs", line: "Medal Series" },
   { sku: "72PD02", description: "MedalSeries Dog Chicken, Duck, & Kale in Broth 2.8oz Pouch - Case Pack of 24", case_weight_lbs: 5.25, case_pack_qty: 24, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "72PL02", description: "MedalSeries Dog Lamb, Saba, & Kelp in Broth 2.8oz Pouch - Case Pack of 24", case_weight_lbs: 5.25, case_pack_qty: 24, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "72PM02", description: "MedalSeries Dog Mackerel, Chicken, & Mussel in Broth 2.8oz Pouch - Case Pack of 24", case_weight_lbs: 5.25, case_pack_qty: 24, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "72PS02", description: "MedalSeries Dog Chicken, Salmon, & Carrot in Broth 2.8oz Pouch - Case Pack of 24", case_weight_lbs: 5.25, case_pack_qty: 24, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "72PX02", description: "MedalSeries Dog Pouch Variety Pack 12 X 2.8oz Pouch", case_weight_lbs: 13.3, case_pack_qty: 2, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "72PXB2", description: "Nulo Dog Meaty Pouch 3-Flavor Beef Chicken Duck Variety Pack 12 x 2.8 OZ Pouches", case_weight_lbs: 5.25, case_pack_qty: 2, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "72PXL2", description: "Nulo Dog Meaty Pouch 3-Flavor Lamb Mackerel Salmon Variety Pack 12 x 2.8 OZ Pouches", case_weight_lbs: 5.25, case_pack_qty: 2, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "72SCS4", description: "MedalSeries Senior Chicken & Lentils 4oz Samples - Case Pack of 25", case_weight_lbs: 7.05, case_pack_qty: 25, group: "samples", category: "Dogs", line: "Medal Series" },
   { sku: "72SD05", description: "MedalSeries Small Breed Dog Grain-Free Duck & Chickpeas 5.5oz Can - Case Pack of 24", case_weight_lbs: 9.5, case_pack_qty: 24, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "72SD06", description: "MedalSeries Small Breed Dog Grain-Free Duck & Chickpeas 6oz Can - Case Pack of 24", case_weight_lbs: 12.1, case_pack_qty: null, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "72ST05", description: "MedalSeries Small Breed Dog Grain-Free Turkey & Lentils 5.5oz Can - Case Pack of 24", case_weight_lbs: 9.5, case_pack_qty: 24, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "72ST06", description: "Medal Series Small Breed Dog GF Turkey Lentil 6 oz Can - Case Pack of 24", case_weight_lbs: 12.1, case_pack_qty: null, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "72WT13", description: "MedalSeries Adult Dog Trim Grain-Free Turkey & Cod 13oz Can - Case Pack of 12", case_weight_lbs: 11.35, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "73BB11", description: "MedalSeries Dog Bone Broth Stew Meal Toppers Beef 11 OZ Carton", case_weight_lbs: 8.45, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "73BC11", description: "MedalSeries Dog Bone Broth Stew Meal Toppers Chicken 11 OZ Carton", case_weight_lbs: 8.45, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "73BT11", description: "MedalSeries Dog Bone Broth Stew Meal Toppers Turkey 11 OZ Carton", case_weight_lbs: 8.45, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "73SB10", description: "Nulo Dog Homestyle Stew Chicken & Beef 10.5 OZ Carton", case_weight_lbs: 8.23, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "73SL10", description: "Nulo Dog Homestyle Stew Lamb & Tuna 10.5 OZ Carton", case_weight_lbs: 8.23, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "73SS10", description: "Nulo Dog Homestyle Stew Chicken & Salmon 10.5 OZ Carton", case_weight_lbs: 8.23, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "73ST10", description: "Nulo Dog Homestyle Stew Turkey & Mackerel 10.5 OZ Carton", case_weight_lbs: 8.23, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "73WB02", description: "Nulo Small Breed Dog Signature Stew Beef Beef Liver Kale 2.8OZ Cup", case_weight_lbs: 5.5, case_pack_qty: 24, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "73WB06", description: "Nulo Dog Beef, Beef Liver,  & Kale Signature Stew 16 x 6OZ Cups", case_weight_lbs: 7.61, case_pack_qty: 16, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "73WB06-CA", description: "CA - Nulo Dog Siganture Stew Beef, Beef Liver, & Kale in Broth 6oz Cup", case_weight_lbs: 7.61, case_pack_qty: 16, group: "canada", category: "Dogs", line: "Medal Series" },
@@ -1791,23 +1655,7 @@ const SKUS = [
   { sku: "73WS06-CA", description: "CA - Nulo Dog Siganture Stew Chicken & Salmon in Broth 6oz Cup", case_weight_lbs: 7.61, case_pack_qty: 16, group: "canada", category: "Dogs", line: "Medal Series" },
   { sku: "73WX02", description: "Nulo Small Breed Dog Signature Stew 3-Flavor Variety Pack 2 x 12 x 2.8oz Cups", case_weight_lbs: 5.5, case_pack_qty: 2, group: "regular", category: "Dogs", line: "Medal Series" },
   { sku: "73WXV2", description: "Nulo 3-Flavor Small Breed Dog Siganture Stew Variety Pack (Chicken Free) 12 x 2.8oz Cups", case_weight_lbs: 2.64, case_pack_qty: 2, group: "regular", category: "Dogs", line: "Medal Series" },
-  { sku: "74HB01", description: "Dog Hydrate Beef Flavor 1.62 FL oz - Master Case Pack of 72", case_weight_lbs: 1.95, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Other" },
-  { sku: "74HC01", description: "Dog Hydrate Chicken Flavor 1.62 FL oz - Master Case Pack of 72", case_weight_lbs: 1.95, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Other" },
-  { sku: "74HL01", description: "Dog Hydrate Lamb Flavor 1.62 FL oz - Master Case Pack of 72", case_weight_lbs: 1.95, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Other" },
-  { sku: "74HP01", description: "Dog Hydrate Pork Flavor 1.62 FL oz - Master Case Pack of 72", case_weight_lbs: 1.95, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Other" },
-  { sku: "74HX04", description: "Hydrate Sampler Pack", case_weight_lbs: 1.9, case_pack_qty: null, group: "regular", category: "Dogs", line: "Other" },
-  { sku: "74HX48", description: "Medal Series Dog Hydrate Pallet Shipper 4 x 48 X 1.62 FL OZ", case_weight_lbs: null, case_pack_qty: null, group: "regular", category: "Dogs", line: "Other" },
-  { sku: "74HXL1", description: "Dog Hydrate Variety Pack - 3 Bottles Each of Beef, Chicken, Lamb, Pork - 12 Bottles Total", case_weight_lbs: 2.2, case_pack_qty: null, group: "regular", category: "Dogs", line: "Other" },
   { sku: "75FB06", description: "MedalSeries Freeze-Dried Raw Tasty Toppers Beef 6oz - Case Pack of 8", case_weight_lbs: 4.25, case_pack_qty: 8, group: "regular", category: "Other", line: "Other" },
-  { sku: "75FC06", description: "MedalSeries Freeze-Dried Raw Tasty Toppers Chicken 6oz - Case Pack of 8", case_weight_lbs: 4.25, case_pack_qty: 8, group: "regular", category: "Other", line: "Other" },
-  { sku: "75FT06", description: "MedalSeries Freeze-Dried Raw Tasty Toppers Turkey 6oz - Case Pack of 8", case_weight_lbs: 4.25, case_pack_qty: 8, group: "regular", category: "Other", line: "Other" },
-  { sku: "77FL05", description: "Nulo Dog Freeze Dried Raw+ Adult Lamb 5LB Bag", case_weight_lbs: 21.0, case_pack_qty: 4, group: "regular", category: "Other", line: "Other" },
-  { sku: "77FL09", description: "Nulo Dog Freeze Dried Raw+ Adult Lamb 9OZ Bag", case_weight_lbs: 5.95, case_pack_qty: 10, group: "regular", category: "Other", line: "Other" },
-  { sku: "77FS05", description: "Nulo Dog Freeze Dried Raw+ Adult Chicken, Whitefish, & Salmon 5LB Bag", case_weight_lbs: 21.0, case_pack_qty: 4, group: "regular", category: "Other", line: "Other" },
-  { sku: "77FS09", description: "Nulo Dog Freeze-Dried Raw+ Chicken & Salmon 9OZ Bag", case_weight_lbs: 5.95, case_pack_qty: 10, group: "regular", category: "Other", line: "Other" },
-  { sku: "81AC05", description: "MedalSeries Adult Cat Chicken & Peas 5lb - Case Pack of 4", case_weight_lbs: 20.45, case_pack_qty: 4, group: "regular", category: "Cats", line: "Medal Series" },
-  { sku: "81AC12", description: "MedalSeries Adult Cat Chicken & Peas 12lb", case_weight_lbs: 12.2, case_pack_qty: 1, group: "regular", category: "Cats", line: "Medal Series" },
-  { sku: "81ACS2", description: "Medal Series Adult Cat GF Chicken & Peas 25/2oz", case_weight_lbs: 3.65, case_pack_qty: 25, group: "samples", category: "Cats", line: "Medal Series" },
   { sku: "81AS05", description: "MedalSeries Adult Cat Salmon & Lentils 5lb - Case Pack of 4", case_weight_lbs: 20.45, case_pack_qty: 4, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "81AS12", description: "MedalSeries Adult Cat Salmon & Lentils 12lb", case_weight_lbs: 12.2, case_pack_qty: 1, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "81AT05", description: "MedalSeries Indoor Cat Trout & Duck 5lb - Case Pack of 4", case_weight_lbs: 20.45, case_pack_qty: 4, group: "regular", category: "Cats", line: "Medal Series" },
@@ -1843,24 +1691,18 @@ const SKUS = [
   { sku: "81LC01", description: "MedalSeries Cat & Kitten Whole-Prey L.I.D. Chicken 1.8lb - Case Pack of 6", case_weight_lbs: 11.25, case_pack_qty: 6, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "81LC04", description: "MedalSeries Cat & Kitten Whole-Prey L.I.D. Chicken 4.5lb - Case Pack of 4", case_weight_lbs: 18.0, case_pack_qty: 4, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "81LC11", description: "MedalSeries Cat & Kitten Whole-Prey L.I.D. Chicken 11lb", case_weight_lbs: 11.2, case_pack_qty: 1, group: "regular", category: "Cats", line: "Medal Series" },
-  { sku: "81LT01", description: "MedalSeries Cat & Kitten Whole-Prey L.I.D. Turkey 1.8lb - Case Pack of 6", case_weight_lbs: 11.25, case_pack_qty: 6, group: "regular", category: "Cats", line: "Medal Series" },
-  { sku: "81LT04", description: "MedalSeries Cat & Kitten Whole-Prey L.I.D. Turkey 4.5lb - Case Pack of 4", case_weight_lbs: 16.4, case_pack_qty: 4, group: "regular", category: "Cats", line: "Medal Series" },
-  { sku: "81LT11", description: "MedalSeries Cat & Kitten Whole-Prey L.I.D. Turkey 11lb", case_weight_lbs: 11.2, case_pack_qty: 1, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "81LW01", description: "MedalSeries Cat & Kitten Whole-Prey L.I.D. Cod 1.8lb - Case Pack of 6", case_weight_lbs: 11.25, case_pack_qty: 6, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "81LW04", description: "MedalSeries Cat & Kitten Whole-Prey L.I.D. Cod 4.5lb - Case Pack of 4", case_weight_lbs: 20.0, case_pack_qty: 4, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "81LW11", description: "MedalSeries Cat & Kitten Whole-Prey L.I.D. Cod 11lb", case_weight_lbs: 11.2, case_pack_qty: 1, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "81ST02", description: "MedalSeries Senior Cat Turkey, Alaska Pollock, & Red Lentils 2lb - Case Pack of 6", case_weight_lbs: 12.6, case_pack_qty: 6, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "81ST05", description: "MedalSeries Senior Cat Turkey, Alaska Pollock, & Red Lentils 5lb - Case Pack of 4", case_weight_lbs: 20.45, case_pack_qty: 4, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "81ST12", description: "MedalSeries Senior Cat Turkey, Alaska Pollock, & Red Lentils 12lb", case_weight_lbs: 12.2, case_pack_qty: 1, group: "regular", category: "Cats", line: "Medal Series" },
-  { sku: "81WS02", description: "MedalSeries Adult Cat Weight Management Salmon & Sweet Potato 2lb - Case Pack of 6", case_weight_lbs: 12.6, case_pack_qty: 6, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "81WS05", description: "MedalSeries Adult Cat Weight Management Salmon & Sweet Potato 5lb - Case Pack of 4", case_weight_lbs: 20.45, case_pack_qty: 4, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "81WS12", description: "MedalSeries Adult Cat Weight Management Salmon & Sweet Potato 12lb", case_weight_lbs: 12.2, case_pack_qty: 1, group: "regular", category: "Cats", line: "Medal Series" },
-  { sku: "82ATS2", description: "MedalSeries Indoor Cat Trout & Duck 2oz Samples - Case Pack of 25", case_weight_lbs: 3.65, case_pack_qty: 25, group: "samples", category: "Cats", line: "Medal Series" },
   { sku: "82BC02", description: "MedalSeries Chunky Chicken Broth for Cats 2.8oz Pouch - Case Pack of 24", case_weight_lbs: 5.2, case_pack_qty: 24, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "82BD02", description: "MedalSeries Chunky Duck & Chicken Broth for Cats 2.8oz Pouch - Case Pack of 24", case_weight_lbs: 5.2, case_pack_qty: 24, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "82BS02", description: "MedalSeries Chunky Salmon Broth for Cats 2.8oz Pouch - Case Pack of 24", case_weight_lbs: 5.2, case_pack_qty: 24, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "82BT02", description: "MedalSeries Chunky Tuna Broth for Cats 2.8oz Pouch - Case Pack of 24", case_weight_lbs: 5.2, case_pack_qty: 24, group: "regular", category: "Cats", line: "Medal Series" },
-  { sku: "82BX02", description: "Chunky Broth For Cats Variety Pack 2 x 12 x 2.8oz Pouches", case_weight_lbs: 5.25, case_pack_qty: 2, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "83AB05", description: "Medal Series Cat Beef 5.5 oz - Case Pack of 24", case_weight_lbs: 9.5, case_pack_qty: 24, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "83AC05", description: "Medal Series Cat Chicken 5.5 oz - Case Pack of 24", case_weight_lbs: 9.5, case_pack_qty: 24, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "83AD05", description: "Medal Series Cat Duck 5.5 oz - Case Pack of 24", case_weight_lbs: 9.5, case_pack_qty: 24, group: "regular", category: "Cats", line: "Medal Series" },
@@ -1878,9 +1720,6 @@ const SKUS = [
   { sku: "83KD02", description: "Master Case - Nulo Kitten Chicken & Duck Pate with Shreds 8 x 12 x 2.8oz Cans", case_weight_lbs: 21.0, case_pack_qty: 96, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "83KM02", description: "Master Case - Kitten Chicken & Mackerel Pate with Shreds 8 x 12 x 2.8oz Cans", case_weight_lbs: 21.0, case_pack_qty: 96, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "83KX02", description: "Nulo 3-Flavor Kitten Pates with Shreds Variety Pack 12 x 2.8oz Cans", case_weight_lbs: null, case_pack_qty: 8, group: "regular", category: "Cats", line: "Medal Series" },
-  { sku: "83LC05", description: "MedalSeries Cat & Kitten Grain-Free L.I.D. 95% Chicken 5.5oz Can - Case Pack of 24", case_weight_lbs: 9.5, case_pack_qty: 24, group: "regular", category: "Cats", line: "Medal Series" },
-  { sku: "83LS05", description: "MedalSeries Cat & Kitten Grain-Free L.I.D. 95% Salmon 5.5oz Can - Case Pack of 24", case_weight_lbs: 9.5, case_pack_qty: 24, group: "regular", category: "Cats", line: "Medal Series" },
-  { sku: "83LT05", description: "MedalSeries Cat & Kitten Grain-Free L.I.D. 95% Turkey 5.5oz Can - Case Pack of 24", case_weight_lbs: 9.5, case_pack_qty: 24, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "83MB03", description: "MedalSeries Minced Beef & Mackerel Recipe- 3oz Can - Case Pack of 24", case_weight_lbs: 5.25, case_pack_qty: 24, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "83MS03", description: "MedalSeries Cat Minced Salmon & Turkey Recipe 3oz Can - Case Pack of 24", case_weight_lbs: 5.25, case_pack_qty: 24, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "83MT03", description: "MedalSeries Minced Turkey & Duck Recipe-\"Fish-Free\" 3 oz - Case Pack of 24", case_weight_lbs: 5.25, case_pack_qty: 24, group: "regular", category: "Cats", line: "Medal Series" },
@@ -1905,8 +1744,6 @@ const SKUS = [
   { sku: "83WM02", description: "Medal Series Cat & Kitten Mackerel, Shrimp, & Mussels Stew 2.8oz Cup - Case Pack of 24", case_weight_lbs: 5.15, case_pack_qty: 24, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "83WT02", description: "Medal Series Cat & Kitten Yellowfin Tuna & Crab Stew 2.8oz Cup - Case Pack of 24", case_weight_lbs: 5.15, case_pack_qty: 24, group: "regular", category: "Cats", line: "Medal Series" },
   { sku: "83WX02", description: "Medal Series Cat & Kitten Signature Stew Variety Pack 12 x 2.8oz Cups", case_weight_lbs: 5.53, case_pack_qty: 2, group: "regular", category: "Cats", line: "Medal Series" },
-  { sku: "84HB01", description: "Cat Hydrate Beef Flavor 1.62 FL OZ - Case Pack of 12", case_weight_lbs: 1.9, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
-  { sku: "84HC01", description: "Cat Hydrate Chicken Liver Flavor 1.62 FL OZ - Case Pack of 12", case_weight_lbs: 1.9, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
   { sku: "84SB05", description: "Nulo Cat Grain-Free Beef & Sardine Puree 0.5oz Sachet - Case Pack of 48", case_weight_lbs: 2.05, case_pack_qty: 48, group: "regular", category: "Other", line: "Other" },
   { sku: "84SC05", description: "Nulo Cat Grain-Free Chicken Puree 0.5oz Sachet - Case Pack of 48", case_weight_lbs: 2.05, case_pack_qty: 48, group: "regular", category: "Other", line: "Other" },
   { sku: "84SO05", description: "Nulo Cat Grain-Free Tuna & Scallop Puree 0.5oz Sachet - Case Pack of 48", case_weight_lbs: 2.05, case_pack_qty: 48, group: "regular", category: "Other", line: "Other" },
@@ -1914,17 +1751,6 @@ const SKUS = [
   { sku: "84ST05", description: "Nulo Cat Grain-Free Tuna & Crab Puree 0.5oz Sachet - Case Pack of 48", case_weight_lbs: 2.05, case_pack_qty: 48, group: "regular", category: "Other", line: "Other" },
   { sku: "84SX40", description: "Megapack - Nulo Cat GF Puree Variety Pack 40 X 0.5 OZ Sachets", case_weight_lbs: 1.7, case_pack_qty: 1, group: "regular", category: "Other", line: "Other" },
   { sku: "84SXP5", description: "Sleeve Master Case - NuloCat GF Puree Variety Pack 12 X 10 X 0.5 OZ Sachets", case_weight_lbs: 4.95, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
-  { sku: "85FB06", description: "MedalSeries Cat Freeze Dried Beef 6.5oz - Case Pack of 12", case_weight_lbs: 6.0, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
-  { sku: "85FC06", description: "MedalSeries Cat Freeze Dried Chicken Salmon 6.5oz - Case Pack of 12", case_weight_lbs: 6.0, case_pack_qty: null, group: "regular", category: "Other", line: "Other" },
-  { sku: "86JB04", description: "MedalSeries Dog Jerky Treat Beef Coconut 4 oz - Case Pack of 12", case_weight_lbs: 4.8, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
-  { sku: "86JC04", description: "MedalSeries Dog Jerky Treat Chicken Apple 4 oz - Case Pack of 12", case_weight_lbs: 4.8, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
-  { sku: "86JD04", description: "MedalSeries Dog Jerky Treat Duck Plum 4 oz - Case Pack of 12", case_weight_lbs: 4.8, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
-  { sku: "86JS04", description: "MedalSeries Dog Jerky Treat Salmon Strawberry 4 oz - Case Pack of 12", case_weight_lbs: 4.8, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
-  { sku: "86JT04", description: "MedalSeries Dog Jerky Treat Turkey Cranberry 4 oz - Case Pack of 12", case_weight_lbs: 4.8, case_pack_qty: 12, group: "regular", category: "Other", line: "Other" },
-  { sku: "86ST05", description: "MedalSeries Protein Sticks Turkey 0.53oz", case_weight_lbs: 12.0, case_pack_qty: null, group: "regular", category: "Other", line: "Other" },
-  { sku: "86TD04", description: "MedalSeries Dog Training Treat Duck 4 oz - Case Pack of 12", case_weight_lbs: 3.5, case_pack_qty: null, group: "regular", category: "Other", line: "Other" },
-  { sku: "86TS04", description: "MedalSeries Dog Training Treat Salmon 4 oz - Case Pack of 12", case_weight_lbs: 3.5, case_pack_qty: null, group: "regular", category: "Other", line: "Other" },
-  { sku: "86TT04", description: "MedalSeries Dog Training Treat Turkey 4 oz - Case Pack of 12", case_weight_lbs: 3.5, case_pack_qty: null, group: "regular", category: "Other", line: "Other" },
   { sku: "91CB04", description: "Challenger Dog Beef, Lamb, & Pork 4.5 lb - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Challenger" },
   { sku: "91CB11", description: "Challenger Dog Beef, Lamb, & Pork 11 lb", case_weight_lbs: 11.2, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Challenger" },
   { sku: "91CB24", description: "Challenger Dog Beef, Lamb, & Pork 24 lb", case_weight_lbs: 24.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Challenger" },
@@ -1935,16 +1761,10 @@ const SKUS = [
   { sku: "91CH04", description: "Challenger Dog Haddock, Salmon, & Redfish 4.5 lb - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Challenger" },
   { sku: "91CH11", description: "Challenger Dog Haddock, Salmon, & Redfish 11 lb", case_weight_lbs: 11.2, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Challenger" },
   { sku: "91CH24", description: "Challenger Dog Haddock, Salmon, & Redfish 24 lb", case_weight_lbs: 24.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Challenger" },
-  { sku: "91LB04", description: "Challenger Large Breed Puppy Beef, Lamb, & Pork 4.5 lb - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Challenger" },
   { sku: "91LB11", description: "Challenger Large Breed Puppy Beef, Lamb, & Pork 11 lb", case_weight_lbs: 11.2, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Challenger" },
   { sku: "91LB24", description: "Challenger Large Breed Puppy Beef, Lamb, & Pork 24 lb", case_weight_lbs: 24.25, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Challenger" },
-  { sku: "91LBS4", description: "Challenger Large Breed Puppy Beef, Lamb, & Pork 4 oz Sample - Case Pack of 25", case_weight_lbs: 7.05, case_pack_qty: 25, group: "samples", category: "Dogs", line: "Challenger" },
   { sku: "91SH04", description: "Challenger Small Breed Dog Haddock, Salmon, & Redfish 4.5 lb - Case Pack of 5", case_weight_lbs: 23.05, case_pack_qty: 5, group: "regular", category: "Dogs", line: "Challenger" },
   { sku: "91SH11", description: "Challenger Small Breed Dog Haddock, Salmon, & Redfish 11 lb", case_weight_lbs: 11.2, case_pack_qty: 1, group: "regular", category: "Dogs", line: "Challenger" },
-  { sku: "91SHS4", description: "Challenger Small Breed Dog Haddock, Salmon, & Redfish 4 oz Sample - Case Pack of 25", case_weight_lbs: 7.05, case_pack_qty: 25, group: "samples", category: "Dogs", line: "Challenger" },
-  { sku: "92AB11", description: "Challenger Adult Dog Homestyle Beef Stew With Carrots 11 oz - Case Pack of 12", case_weight_lbs: 8.45, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Challenger" },
-  { sku: "92AC11", description: "Challenger Adult Dog Savory Chicken Stew With Coconut Milk 11 oz - Case Pack of 12", case_weight_lbs: 8.45, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Challenger" },
-  { sku: "92AT11", description: "Challenger Adult Dog Harvest Turkey Stew With Pumpkin 11 oz - Case Pack of 12", case_weight_lbs: 8.45, case_pack_qty: 12, group: "regular", category: "Dogs", line: "Challenger" }
 ];
 
 const FREIGHT_THRESHOLD = 200;
@@ -2027,7 +1847,6 @@ function scoreMatch(sku, query) {
 
 // Keyword aliases for group searching
 const GROUP_KEYWORDS = {
-  'oos': 'oos', 'out of stock': 'oos', 'outofstock': 'oos',
   'samples': 'samples', 'sample': 'samples', 'sample size': 'samples',
   'canada': 'canada', 'canadian': 'canada', 'ca': 'canada',
 };
@@ -2045,9 +1864,7 @@ function getFilteredSkus(query) {
     if (!q) return true;
     // Group keyword match
     if (groupAlias) return s.group === groupAlias || (groupAlias === 'samples' && s.group === 'canada_samples');
-    return s.sku.toLowerCase().includes(q) || s.description.toLowerCase().includes(q) ||
-           (q === 'oos' && s.group === 'oos') ||
-           (q.includes('stock') && s.group === 'oos');
+    return s.sku.toLowerCase().includes(q) || s.description.toLowerCase().includes(q);
   });
   if (q && !groupAlias) {
     results = results.slice().sort(function(a, b) {
@@ -2152,10 +1969,6 @@ function createSkuLine(num, existing = {}) {
       </div>
       <div class="unit-badge" style="display:none;"></div>
     </div>
-
-    <div class="oos-warning" style="display:none; grid-column:1/-1; margin-top:6px; padding:8px 12px; background:#FFF3CD; border:1.5px solid #E8A838; border-radius:var(--radius); font-size:12px; color:#7A4800; font-family:'Barlow',sans-serif; font-weight:600;">
-      ⚠️ This item is currently out of stock. Your request will still be submitted and the Operations Team will follow up.
-    </div>
   `;
 
   const searchInput = div.querySelector('.sku-search-input');
@@ -2165,7 +1978,6 @@ function createSkuLine(num, existing = {}) {
   const qtyInput = div.querySelector('.sku-qty');
   const hint = div.querySelector('.conversion-hint');
   const unitBadge = div.querySelector('.unit-badge');
-  const oosWarning = div.querySelector('.oos-warning');
 
   function highlight(text, query) {
     if (!query) return text;
@@ -2189,7 +2001,7 @@ function createSkuLine(num, existing = {}) {
       if (q) {
         // Flat ranked results with subtle group label
         filtered.forEach(function(s) {
-          const groupLabel = s.group === 'samples' ? '<span style="font-weight:700;color:var(--teal);font-size:10px;"> · Sample</span>' : s.group === 'canada' ? '<span style="font-weight:700;color:#2C5282;font-size:10px;"> · Canada</span>' : s.group === 'oos' ? '<span style="font-weight:700;color:var(--accent);font-size:10px;"> · OOS</span>' : '';
+          const groupLabel = s.group === 'samples' ? '<span style="font-weight:700;color:var(--teal);font-size:10px;"> · Sample</span>' : s.group === 'canada' ? '<span style="font-weight:700;color:#2C5282;font-size:10px;"> · Canada</span>' : '';
           html += '<div class="sku-option" data-sku="' + s.sku + '">' +
             '<div class="sku-option-sku">' + highlight(s.sku, q) + groupLabel + '</div>' +
             '<div class="sku-option-desc">' + highlight(s.description, q) + '</div>' +
@@ -2200,14 +2012,13 @@ function createSkuLine(num, existing = {}) {
         const groups = [
           { key: 'regular', label: 'All Products' },
           { key: 'samples', label: 'Sample Size SKUs' },
-          { key: 'oos', label: '⚠️ Out of Stock Samples' },
           { key: 'canada', label: 'Canada' },
           { key: 'canada_samples', label: 'Sample Size SKUs — Canada' },
         ];
         groups.forEach(function(g) {
           const items = filtered.filter(s => s.group === g.key);
           if (items.length === 0) return;
-          const cls = g.key === 'samples' || g.key === 'canada_samples' ? 'samples' : g.key === 'canada' ? 'canada' : g.key === 'oos' ? 'oos' : '';
+          const cls = g.key === 'samples' || g.key === 'canada_samples' ? 'samples' : g.key === 'canada' ? 'canada' : '';
           html += '<div class="sku-group-header ' + cls + '">' + g.label + ' (' + items.length + ')</div>';
           items.forEach(function(s) {
             html += '<div class="sku-option" data-sku="' + s.sku + '">' +
@@ -2236,7 +2047,6 @@ function createSkuLine(num, existing = {}) {
     searchInput.classList.add('selected');
     clearBtn.style.display = 'block';
     dropdown.classList.remove('open');
-    if (oosWarning) oosWarning.style.display = skuData.group === 'oos' ? 'block' : 'none';
     updateHint();
   }
 
@@ -2247,7 +2057,6 @@ function createSkuLine(num, existing = {}) {
     clearBtn.style.display = 'none';
     hint.textContent = '';
     unitBadge.style.display = 'none';
-    if (oosWarning) oosWarning.style.display = 'none';
     dropdown.classList.remove('open');
     updateWeight();
   }
@@ -2255,8 +2064,7 @@ function createSkuLine(num, existing = {}) {
   function updateHint() {
     const skuData = SKUS.find(s => s.sku === hiddenSelect.value);
     const qty = parseFloat(qtyInput.value);
-    if (!skuData) { hint.textContent = ''; unitBadge.style.display = 'none'; if (oosWarning) oosWarning.style.display = 'none'; return; }
-    if (oosWarning) oosWarning.style.display = skuData.group === 'oos' ? 'block' : 'none';
+    if (!skuData) { hint.textContent = ''; unitBadge.style.display = 'none'; return; }
     const pack = skuData.case_pack_qty;
     // Unit badge always shows "eaches" now
     unitBadge.textContent = pack ? 'cases' : 'eaches';
@@ -2507,8 +2315,7 @@ function buildTaskDescription(poNumber) {
     let qtyStr = `${qty} ${unit}`;
     if (pack) qtyStr += ' (' + (qty * pack) + ' eaches)';
 
-    const isOos = skuData && skuData.group === 'oos';
-    lines.push(`${i+1}. SKU: ${sku} | Qty: ${qtyStr}${isOos ? ' ⚠️ OUT OF STOCK' : ''}`);
+    lines.push(`${i+1}. SKU: ${sku} | Qty: ${qtyStr}`);
     lines.push(`   ${desc}`);
 
     if (skuData?.case_weight_lbs) {
@@ -2916,19 +2723,6 @@ async function submitForm() {
     emailStatusEl.textContent = '';
     if (true) { // emails enabled
     try {
-      // Collect OOS items for email warning
-      var oosItems = [];
-      document.querySelectorAll('.sku-line').forEach(function(line) {
-        var skuEl = line.querySelector('.sku-select');
-        var sku = skuEl ? skuEl.value : '';
-        if (!sku) return;
-        var skuData = SKUS.find(function(s) { return s.sku === sku; });
-        if (skuData && skuData.group === 'oos') oosItems.push(sku);
-      });
-      var oosWarningText = oosItems.length > 0
-        ? '⚠️ OUT OF STOCK ITEMS IN THIS ORDER: ' + oosItems.join(', ') + '. The Operations Team will follow up regarding availability.'
-        : '';
-
       var sharedParams = {
         po_number: poNumber,
         rep_name: repName,
@@ -2940,12 +2734,11 @@ async function submitForm() {
         adjustment_code: adjustmentCode || 'N/A',
         urgent: urgent ? 'YES — HIGH PRIORITY' : 'No',
         urgent_prefix: urgent ? '⚡ URGENT — ' : '',
-        oos_warning: oosWarningText,
         full_details: description
       };
       // Send rep confirmation
       emailStatusEl.textContent = '📤 Sending confirmation to ' + repEmail + '...';
-      var repParams = { to_email: repEmail, po_number: sharedParams.po_number, oos_warning: sharedParams.oos_warning, rep_name: sharedParams.rep_name, recipient_name: sharedParams.recipient_name, ship_to: sharedParams.ship_to, sku_list: sharedParams.sku_list, delivery_by: sharedParams.delivery_by, department: sharedParams.department, adjustment_code: sharedParams.adjustment_code, urgent: sharedParams.urgent, urgent_prefix: sharedParams.urgent_prefix, full_details: sharedParams.full_details };
+      var repParams = { to_email: repEmail, po_number: sharedParams.po_number, rep_name: sharedParams.rep_name, recipient_name: sharedParams.recipient_name, ship_to: sharedParams.ship_to, sku_list: sharedParams.sku_list, delivery_by: sharedParams.delivery_by, department: sharedParams.department, adjustment_code: sharedParams.adjustment_code, urgent: sharedParams.urgent, urgent_prefix: sharedParams.urgent_prefix, full_details: sharedParams.full_details };
       var repResult = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_REP, repParams);
       emailStatusEl.textContent = '🔔 Notifying the Operations Team...';
       // Send orders notification
