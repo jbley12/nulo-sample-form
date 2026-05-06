@@ -932,7 +932,7 @@
             Paste your SKU list below — one item per line. Include the SKU and quantity in <strong>cases</strong>, separated by a comma, space, or tab.<br>
             <strong>e.g.</strong> &nbsp;52ALS4, 3 &nbsp;·&nbsp; 61KCS2 2 &nbsp;·&nbsp; 91CDS4, 5
           </div>
-          <textarea id="paste-input" placeholder="52ALS4, 3&#10;61KCS2, 2&#10;91CDS4, 5"></textarea>
+          <textarea id="paste-input" placeholder="52ALS4 3&#10;61KCS2 2&#10;91CDS4 5"></textarea>
           <div class="paste-actions">
             <button type="button" class="btn-parse" onclick="parsePastedList()">Build Order</button>
             <span id="paste-feedback" class="paste-success"></span>
@@ -1925,7 +1925,9 @@ function addSkuLine(existing) {
 
   wrap.appendChild(line);
   container.appendChild(wrap);
-  document.getElementById('weight-bar-wrap').style.display = 'block';
+  if (existing && existing.sku) {
+    document.getElementById('weight-bar-wrap').style.display = 'block';
+  }
 
   // Scroll into view smoothly
   line.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -2047,6 +2049,7 @@ function createSkuLine(num, existing = {}) {
     searchInput.classList.add('selected');
     clearBtn.style.display = 'block';
     dropdown.classList.remove('open');
+    document.getElementById('weight-bar-wrap').style.display = 'block';
     updateHint();
   }
 
@@ -2595,7 +2598,6 @@ async function submitForm() {
   btn.disabled = true;
 
   showStatus('🐾 Getting the team ready...');
-    showStatus('🐱 Herding the cats...');
 
   try {
     // ── COLLECT FORM DATA ────────────────────────────────────────────────
@@ -2619,6 +2621,8 @@ async function submitForm() {
     const poNumber = generatePONumber(repName);
     const description = buildTaskDescription(poNumber);
     const taskName = (urgent ? '⚡ URGENT — ' : '') + '[' + poNumber + '] Sample Request — ' + recipientName + ' (from ' + repName + ')';
+
+    showStatus('🐱 Herding the cats...');
 
     const skuLines = [];
     document.querySelectorAll('.sku-line').forEach(function(line) {
