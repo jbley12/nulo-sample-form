@@ -1784,7 +1784,10 @@ function updateFilterButtons(type) {
         if (activeFilters[type].size === 0) b.classList.add('active');
       }
     } else {
-      if (activeFilters[type].has(val)) {
+      const isActive = type === 'group'
+        ? activeFilters.group === val
+        : activeFilters[type].has(val);
+      if (isActive) {
         b.classList.add(type === 'category' ? 'active-red' : 'active');
       }
     }
@@ -1809,6 +1812,12 @@ document.querySelectorAll('.sku-filter-btn').forEach(function(btn) {
       }
     }
     updateFilterButtons(type);
+    // Re-render any open dropdowns
+    document.querySelectorAll('.sku-search-input').forEach(function(inp) {
+      if (inp.closest('.sku-combobox').querySelector('.sku-dropdown.open')) {
+        inp.dispatchEvent(new Event('input'));
+      }
+    });
   });
 });
 
