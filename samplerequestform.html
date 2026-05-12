@@ -2514,7 +2514,7 @@ function buildNetSuiteCSV(poNumber, skuLines, deliveryByVal, department, country
   return rows.join('\r\n');
 }
 
-async function attachCSVToAsanaTask(taskGid, csvContent, poNumber, asanaToken) {
+async function attachCSVToAsanaTask(taskGid, csvContent, poNumber) {
   // Convert CSV string to a Blob/File for multipart upload
   var blob = new Blob([csvContent], { type: 'text/csv' });
   var formData = new FormData();
@@ -2523,9 +2523,9 @@ async function attachCSVToAsanaTask(taskGid, csvContent, poNumber, asanaToken) {
   formData.append('parent', taskGid);
 
   try {
-    var attachRes = await fetch('https://app.asana.com/api/1.0/attachments', {
+    var attachRes = await fetch(ASANA_PROXY + '/api/1.0/attachments', {
       method: 'POST',
-      headers: { 'Authorization': 'Bearer ' + asanaToken },
+      headers: {},
       body: formData
     });
     var attachText = await attachRes.text();
@@ -2647,13 +2647,13 @@ async function submitForm() {
     });
 
     // ── CONFIG ───────────────────────────────────────────────────────────
-    const ASANA_TOKEN = '2/1213091221170888/1214103247912430:bdd03ab19a75dbdadc4e8a21607fa4f0';
+    const ASANA_PROXY = 'https://nulo-asana-proxy.jake-bleything.workers.dev';
     const PROJECT_NAME = 'Sample Order Requests';
     const EMAILJS_SERVICE_ID = 'service_2zu1t7p';
     const EMAILJS_TEMPLATE_REP = 'template_mpege4o';
     const EMAILJS_TEMPLATE_ORDERS = 'template_ymrjnug';
     const EMAILJS_PUBLIC_KEY = 'HaoQ5YL5GZKy2fQka';
-    const HEADERS = { 'Authorization': 'Bearer ' + ASANA_TOKEN, 'Content-Type': 'application/json' };
+    const HEADERS = { 'Content-Type': 'application/json' };
 
     function timedFetch(url, opts, ms) {
       ms = ms || 12000;
@@ -2672,7 +2672,7 @@ async function submitForm() {
 
     // ── STEP 1: GET WORKSPACE ────────────────────────────────────────────
     showStatus('🐶 Waking up the dogs...');
-    var wsRes = await timedFetch('https://app.asana.com/api/1.0/workspaces', { headers: HEADERS });
+    var wsRes = await timedFetch(ASANA_PROXY + '/api/1.0/workspaces', { headers: HEADERS });
     var wsText = await wsRes.text();
     if (!wsRes.ok) throw new Error('Asana auth failed (HTTP ' + wsRes.status + '). Token may be expired. Response: ' + wsText.slice(0,150));
     var wsData = JSON.parse(wsText);
@@ -2681,7 +2681,7 @@ async function submitForm() {
 
     // ── STEP 2: FIND / CREATE PROJECT ────────────────────────────────────
     showStatus('🦴 Sniffing out your order...');
-    var projRes = await timedFetch('https://app.asana.com/api/1.0/projects?workspace=' + workspaceGid + '&limit=100', { headers: HEADERS });
+    var projRes = await timedFetch(ASANA_PROXY + '/api/1.0/projects?workspace=' + workspaceGid + '&limit=100', { headers: HEADERS });
     var projText = await projRes.text();
     if (!projRes.ok) throw new Error('Could not load projects (HTTP ' + projRes.status + '): ' + projText.slice(0,150));
     var projData = JSON.parse(projText);
@@ -2691,7 +2691,7 @@ async function submitForm() {
     }
     if (!projectGid) {
       showStatus('🐾 Setting up a new bowl...');
-      var cpRes = await timedFetch('https://app.asana.com/api/1.0/projects', {
+      var cpRes = await timedFetch(ASANA_PROXY + '/api/1.0/projects', {
         method: 'POST', headers: HEADERS,
         body: JSON.stringify({ data: { name: PROJECT_NAME, workspace: workspaceGid } })
       });
@@ -2704,7 +2704,7 @@ async function submitForm() {
     showStatus('📦 Packing up your order...');
     var taskPayload = { name: taskName, notes: description, projects: [projectGid], workspace: workspaceGid };
     if (urgent) taskPayload.is_important = true;
-    var taskRes = await timedFetch('https://app.asana.com/api/1.0/tasks', {
+    var taskRes = await timedFetch(ASANA_PROXY + '/api/1.0/tasks', {
       method: 'POST', headers: HEADERS,
       body: JSON.stringify({ data: taskPayload })
     });
@@ -2725,7 +2725,7 @@ async function submitForm() {
     });
     var csvContent = buildNetSuiteCSV(poNumber, csvSkuLines, deliveryByVal, department, country);
     var taskGid = taskData.data.gid;
-    var attached = await attachCSVToAsanaTask(taskGid, csvContent, poNumber, ASANA_TOKEN);
+    var attached = await attachCSVToAsanaTask(taskGid, csvContent, poNumber);
     if (!attached) {
       console.warn('CSV could not be attached — continuing anyway.');
     }
