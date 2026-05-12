@@ -2518,21 +2518,18 @@ function buildNetSuiteCSV(poNumber, skuLines, deliveryByVal, department, country
 }
 
 async function attachCSVToAsanaTask(taskGid, csvContent, poNumber) {
-  // Upload CSV as a base64-encoded external attachment via JSON
-  // This avoids multipart/form-data which doesn't proxy cleanly through Cloudflare Workers
+  // Upload CSV as multipart/form-data via the Cloudflare Worker proxy
+  var blob = new Blob([csvContent], { type: 'text/csv' });
+  var formData = new FormData();
+  formData.append('file', blob, poNumber + '_netsuite.csv');
+  formData.append('name', poNumber + '_netsuite.csv');
+  formData.append('parent', taskGid);
+
   try {
-    var base64 = btoa(unescape(encodeURIComponent(csvContent)));
-    var attachRes = await fetch(ASANA_PROXY + '/api/1.0/tasks/' + taskGid + '/attachments', {
+    // Do NOT set Content-Type header — browser sets it automatically with the correct boundary
+    var attachRes = await fetch(ASANA_PROXY + '/api/1.0/attachments', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        data: {
-          name: poNumber + '_netsuite.csv',
-          resource_subtype: 'external',
-          url: 'data:text/csv;base64,' + base64,
-          description: 'NetSuite import file'
-        }
-      })
+      body: formData
     });
     var attachText = await attachRes.text();
     if (!attachRes.ok) {
