@@ -1036,6 +1036,9 @@
 </div><!-- /page-wrap -->
 
 <script>
+// ─── GLOBAL CONFIG ──────────────────────────────────────────────────────────
+const ASANA_PROXY = 'https://nulo-asana-proxy.jake-bleything.workers.dev';
+
 // ─── SKU DATA ──────────────────────────────────────────────────────────────
 const SKUS = [
   { sku: "10AB03", description: "Frontrunner Adult Dog With Beef, Barley & Lamb 3lb - Case Pack of 6", case_weight_lbs: 18.5, case_pack_qty: 6, group: "regular", category: "Dogs", line: "Frontrunner" },
@@ -2650,7 +2653,6 @@ async function submitForm() {
     });
 
     // ── CONFIG ───────────────────────────────────────────────────────────
-    const ASANA_PROXY = 'https://nulo-asana-proxy.jake-bleything.workers.dev';
     const PROJECT_NAME = 'Sample Order Requests';
     const EMAILJS_SERVICE_ID = 'service_2zu1t7p';
     const EMAILJS_TEMPLATE_REP = 'template_mpege4o';
